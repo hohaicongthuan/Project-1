@@ -52,7 +52,7 @@ result = np.zeros((R, C))
 for i in range(len(MixColumnMatrix)):
    # Iterate through columns
    for j in range(len(matrix[0])):
-       # Iterate through rows of Y
+       # Iterate through rows
        for k in range(len(matrix)):
            temp_a = int(gmul(MixColumnMatrix[i][k], matrix[k][j]))
            temp_b = int(result[i][j])
