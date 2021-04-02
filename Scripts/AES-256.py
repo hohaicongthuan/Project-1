@@ -74,6 +74,8 @@ def XORWord(a, b):
         a[i] = a[i] ^ b[i]
     return a
 
+# Key schedule routine
+# Generates a set of 15 round keys using in encryption and decryption processes.
 def KeySchedule(key):
     
 
