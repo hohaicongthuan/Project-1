@@ -1,0 +1,68 @@
+% This is a comment
+
+\documentclass[a4paper, 12pt, twocolumn]{article}
+
+% Use packages here
+\usepackage[a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm, bindingoffset=1cm]{geometry}
+\usepackage{blindtext} % This package is used for testing
+\usepackage[british]{babel} % This package is used for localisation
+\usepackage{paralist} % This ackage creates compact lists
+
+% Document begins here
+\begin{document}
+
+    %%%%%%%%%
+    % Title %
+    %%%%%%%%%
+    \title{IMPLEMENT AES-256 ALGORITHM ON FPGA}
+    \author{Thuan Hai Cong Ho}
+    \maketitle % Call this command to make title
+    
+    %%%%%%%%%%%
+    % Section %
+    %%%%%%%%%%%
+    \section{Abstract}
+    Some text here.\\
+    Another line of text here. More dummy text will be shown here as for testing purposes.\\
+    
+    These are some lists:
+    % Use this to create lists
+    \begin{compactitem}
+        \item item 1
+        \item item 2
+        \begin{compactitem}
+            \item sub-item 2-1
+            \item sub-item 2-2
+            \item sub-item 2-3
+        \end{compactitem}
+        \item item 3
+    \end{compactitem}
+
+    % Use this to create numbered lists
+    \begin{compactenum}
+        \item item 1
+        \item item 2
+            \begin{compactenum}
+                \item sub-item 2-1
+                \item sub-item 2-2
+                \item sub-item 2-3
+            \end{compactenum}
+        \item item 3
+    \end{compactenum}
+
+    %%%%%%%%%%%
+    % Section %
+    %%%%%%%%%%%
+    \section{Introduction}
+    \blindtext[3]
+
+    % Use this command to break the page
+    % \newpage
+
+    %%%%%%%%%%%
+    % Section %
+    %%%%%%%%%%%
+    \section{AES algorithm}
+    \blindtext[3]
+
+\end{document}

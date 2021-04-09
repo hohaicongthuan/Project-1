@@ -1,0 +1,346 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  9 APR 2021 23:18
+entering extended mode
+**/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
+(/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/base/size12.clo
+File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count187
+\Gm@cntv=\count188
+\c@Gm@tempcnt=\count189
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks16
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg)) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/blindtext/blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count190
+\c@Blindtext=\count191
+\c@blind@countparstart=\count192
+\blind@countxx=\count193
+\blindtext@numBlindtext=\count194
+\blind@countyy=\count195
+\c@blindlist=\count196
+\c@blindlistlevel=\count197
+\c@blindlist@level=\count198
+\blind@listitem=\count199
+\c@blind@listcount=\count266
+\c@blind@levelcount=\count267
+\blind@mathformula=\count268
+\blind@Mathformula=\count269
+\c@blind@randomcount=\count270
+\c@blind@randommax=\count271
+\c@blind@pangramcount=\count272
+\c@blind@pangrammax=\count273
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/babel/babel.sty
+Package: babel 2021/03/03 3.55 The Babel package
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/babel/babel.def
+File: babel.def 2021/03/03 3.55 Babel common definitions
+\babel@savecnt=\count274
+\U@D=\dimen147
+\l@babelnohyphens=\language1
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count275
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/arabi/bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/babel-english/british.ldf
+Language: british 2017/06/06 v3.3r English support from the babel system
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+))) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/paralist/paralist.sty
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip49
+\plpartopsep=\skip50
+\plitemsep=\skip51
+\plparsep=\skip52
+\pl@lab=\toks17
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-03-02 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count276
+\l__pdf_internal_box=\box47
+) (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* bindingoffset: 28.45274pt
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 455.24413pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24413pt
+* \textheight=731.23584pt
+* \oddsidemargin=13.08826pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 19.
+
+Underfull \hbox (badness 1248) in paragraph at lines 25--27
+\OT1/cmr/m/n/12 text will be shown here as for testing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
+
+ []
+
+
+Package blindtext Warning: british not defined, using English instead.
+(blindtext)                 on input line 57.
+
+
+Underfull \hbox (badness 1303) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 adipiscing elit. Etiam lobortis facilisis
+ []
+
+
+Underfull \hbox (badness 5119) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 ante. Donec ullamcorper, felis non
+ []
+
+
+Underfull \hbox (badness 4279) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 sodales commodo, lectus velit ultrices
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 augue, a dignissim nibh lectus placerat
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 fringilla tristique neque. Sed interdum
+ []
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 ipsum. Nunc quis urna dictum turpis
+ []
+
+
+Underfull \hbox (badness 1708) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 lobortis facilisis sem. Nullam nec mi
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 felis non sodales commodo, lectus velit
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 ultrices augue, a dignissim nibh lectus
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 ut, ultricies vel, semper in, velit. Ut
+ []
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 ipsum. Nunc quis urna dictum turpis
+ []
+
+
+Underfull \hbox (badness 1708) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 lobortis facilisis sem. Nullam nec mi
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 felis non sodales commodo, lectus velit
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 ultrices augue, a dignissim nibh lectus
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 57--58
+\OT1/cmr/m/n/12 ut, ultricies vel, semper in, velit. Ut
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/home/hohaicongthuan/.miktex/texmfs/data/pdftex/config/pdftex.map}
+
+
+]
+
+Package blindtext Warning: british not defined, using English instead.
+(blindtext)                 on input line 66.
+
+
+Underfull \hbox (badness 1303) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 adipiscing elit. Etiam lobortis facilisis
+ []
+
+
+Underfull \hbox (badness 5119) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 ante. Donec ullamcorper, felis non
+ []
+
+
+Underfull \hbox (badness 4279) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 sodales commodo, lectus velit ultrices
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 augue, a dignissim nibh lectus placerat
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 fringilla tristique neque. Sed interdum
+ []
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 ipsum. Nunc quis urna dictum turpis
+ []
+
+
+Underfull \hbox (badness 1708) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 lobortis facilisis sem. Nullam nec mi
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 felis non sodales commodo, lectus velit
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 ultrices augue, a dignissim nibh lectus
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 ut, ultricies vel, semper in, velit. Ut
+ []
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 ipsum. Nunc quis urna dictum turpis
+ []
+
+
+Underfull \hbox (badness 1708) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 lobortis facilisis sem. Nullam nec mi
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 felis non sodales commodo, lectus velit
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 ultrices augue, a dignissim nibh lectus
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 ut, ultricies vel, semper in, velit. Ut
+ []
+
+[2] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
+Here is how much of TeX's memory you used:
+ 2033 strings out of 481257
+ 31877 string characters out of 2907664
+ 344182 words of memory out of 3000000
+ 19277 multiletter control sequences out of 15000+200000
+ 406190 words of font info for 36 fonts, out of 3000000 for 9000
+ 0 hyphenation exceptions out of 8191
+ 68i,7n,74p,237b,207s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </home/hohaicongthuan/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (2 pages, 44492 bytes).
+PDF statistics:
+ 26 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
