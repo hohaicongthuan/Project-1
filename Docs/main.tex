@@ -1,12 +1,11 @@
-% This is a comment
-
-\documentclass[a4paper, 12pt, twocolumn]{article}
+\documentclass[a4paper, 10pt]{paper}
 
 % Use packages here
-\usepackage[a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm, bindingoffset=1cm]{geometry}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 \usepackage{blindtext} % This package is used for testing
 \usepackage[british]{babel} % This package is used for localisation
 \usepackage{paralist} % This ackage creates compact lists
+\usepackage{multicol} % This package arranges contents in columns
 
 % Document begins here
 \begin{document}
@@ -14,55 +13,40 @@
     %%%%%%%%%
     % Title %
     %%%%%%%%%
-    \title{IMPLEMENT AES-256 ALGORITHM ON FPGA}
-    \author{Thuan Hai Cong Ho}
+    \title{\centering{IMPLEMENT AES-256 ALGORITHM ON FPGA}}
+    \author{}
     \maketitle % Call this command to make title
-    
-    %%%%%%%%%%%
-    % Section %
-    %%%%%%%%%%%
-    \section{Abstract}
-    Some text here.\\
-    Another line of text here. More dummy text will be shown here as for testing purposes.\\
-    
-    These are some lists:
-    % Use this to create lists
-    \begin{compactitem}
-        \item item 1
-        \item item 2
-        \begin{compactitem}
-            \item sub-item 2-1
-            \item sub-item 2-2
-            \item sub-item 2-3
-        \end{compactitem}
-        \item item 3
-    \end{compactitem}
 
-    % Use this to create numbered lists
-    \begin{compactenum}
-        \item item 1
-        \item item 2
-            \begin{compactenum}
-                \item sub-item 2-1
-                \item sub-item 2-2
-                \item sub-item 2-3
-            \end{compactenum}
-        \item item 3
-    \end{compactenum}
+    \begin{center}
+        Thuan Hai Cong Ho\\
+        Student, Computer Engineering, University of Information Technology, HCMC, Vietnam\\
+        hohaicongthuan@gmail.com
+    \end{center}
 
-    %%%%%%%%%%%
-    % Section %
-    %%%%%%%%%%%
-    \section{Introduction}
-    \blindtext[3]
+    \begin{multicols*}{2}
 
-    % Use this command to break the page
-    % \newpage
+        \textbf{\textit{Abstract\textemdash}In the modern days, the amount of data grow exponentially, including important and sensitive data that need to be kept secured. For this reason, many cryptographic algorithms have been invented for the purpose. AES is one of them. It provides fast and secure data encryption which are the reasons this algorithm is chose for this project.}
 
-    %%%%%%%%%%%
-    % Section %
-    %%%%%%%%%%%
-    \section{AES algorithm}
-    \blindtext[3]
+        \textbf{The goal of this project is to implement a fully functional AES encryption and decryption system using 256-bit key on FPGA.}
+        
+        \bigskip
+
+        \textbf{\textit{Keywords\textemdash}AES-256; cryptography; data security; FPGA; encryption; decryption.}
+
+        \section{INTRODUCTION}
+
+        \section{MATHEMATICAL PRELIMINARIES}
+
+        \section{AES-256 ALGORITHM}
+
+        \section{IMPLEMENTATION}
+
+        \section{RESULTS}
+
+        \section{CONCLUSION}
+
+        \section*{REFERENCES}
+
+    \end{multicols*}
 
 \end{document}

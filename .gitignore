@@ -1,2 +1,8 @@
 .directory 
 Scripts/AES-256_env
+**/*.log
+**/*.fls
+**/*.fdb_latexmk
+**/*.aux
+**/*.toc
+**/*.gz
