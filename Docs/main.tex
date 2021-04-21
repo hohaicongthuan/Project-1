@@ -4,16 +4,41 @@
 \usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 \usepackage{blindtext} % This package is used for testing
 \usepackage[british]{babel} % This package is used for localisation
-\usepackage{paralist} % This ackage creates compact lists
+\usepackage{paralist} % This package creates compact lists
 \usepackage{multicol} % This package arranges contents in columns
+\usepackage{indentfirst} % This package is used for indentation in paragraphs
+\usepackage{array}
+
+% Preamble here
+\setlength\columnsep{30pt} % This is the default columnsep for all pages
+\hyphenation{
+    trans-form-ation 
+    exponent-ially 
+    crypto-graphic
+    crypto-graphy 
+    sub-titu-tion 
+    ta-ble 
+    rou-tine 
+    rectang-ular 
+    expan-sion 
+    secur-ity 
+    encryp-tion 
+    decryp-tion 
+    specifi-cation 
+    inter-mediate 
+    multi-pli-cation 
+    poly-nomials 
+    compris-ing 
+    stand-ard
+}
 
 % Document begins here
 \begin{document}
 
     %%%%%%%%%
-    % Title %
+    % TITLE %
     %%%%%%%%%
-    \title{\centering{IMPLEMENT AES-256 ALGORITHM ON FPGA}}
+    \title{\centering{IMPLEMENTING AES-256 ON FPGA}}
     \author{}
     \maketitle % Call this command to make title
 
@@ -22,10 +47,12 @@
         Student, Computer Engineering, University of Information Technology, HCMC, Vietnam\\
         hohaicongthuan@gmail.com
     \end{center}
-
-    \begin{multicols*}{2}
-
-        \textbf{\textit{Abstract\textemdash}In the modern days, the amount of data grow exponentially, including important and sensitive data that need to be kept secured. For this reason, many cryptographic algorithms have been invented for the purpose. AES is one of them. It provides fast and secure data encryption which are the reasons this algorithm is chose for this project.}
+    \begin{multicols}{2}
+        
+        %%%%%%%%%%%%
+        % ABSTRACT %
+        %%%%%%%%%%%%
+        \textbf{\textit{Abstract\textemdash}In the modern days, the amount of data grow exponentially, including classified and sensitive data that need to be kept secured. For this reason, many cryptographic techniques have been invented for the purpose. AES is one of them. It provides fast and secure data encryption which are the reasons this algorithm is chose for this project.}
 
         \textbf{The goal of this project is to implement a fully functional AES encryption and decryption system using 256-bit key on FPGA.}
         
@@ -33,11 +60,47 @@
 
         \textbf{\textit{Keywords\textemdash}AES-256; cryptography; data security; FPGA; encryption; decryption.}
 
+        %%%%%%%%%%%
+        % CONTENT %
+        %%%%%%%%%%%
         \section{INTRODUCTION}
+            \textit{The Advanced Encryption Standard (AES)}, also known as \textit{Rijndael} is a specification for encrypting electronic data first introduced by the \textit{U.S. National Institute of Standards and Technology (NIST)} in 2001. It provides a fast and secure way to encrypt data and uses symmetric keys encryption which means both the encryption and decryption processes using the same key. The key length for AES could be 128, 192 and 256 bits. This paper concentrates on AES using 256-bit key which will be refered to as AES-256 for the rest of this paper.
+
+            \subsection{Concepts used in AES-256}
+                \begingroup
+                    \setlength{\tabcolsep}{10pt} % Default value: 6pt
+                    \renewcommand{\arraystretch}{2} % Default value: 1
+                    \noindent
+                    \begin{tabular}{m{2cm} m{5cm}}
+                        Key expansion & Routine used to generate a series of Round Keys from the Cipher Key.\\
+                        State & Intermediate Cipher result that can be pictured as a rectangular array
+                        of bytes, having four rows and \textbf{\textit{Nb}} columns.\\
+                        S-box & Non-linear substitution table used in several byte substitution transformation and in the Key Expansion routine to perform a one-for-one substitution of a byte value.\\
+                        Word & A group of 32 bits that is treated either as a single entity or as an array of 4 bytes.\\
+                    \end{tabular}
+                \endgroup
+
+            \subsection{Abbreviations and Symbols used in AES-256}
+                \begingroup
+                    \setlength{\tabcolsep}{5pt} % Default value: 6pt
+                    \renewcommand{\arraystretch}{2} % Default value: 1
+                    \noindent
+                        \begin{tabular}{m{1cm} m{6.5cm}}
+                            \textbf{\textit{Nb}} & Number of columns (32-bit words) comprising the State. For this
+                            standard, \textbf{\textit{Nb}} = 4.\\
+                            \textbf{\textit{Nk}} & Number of 32-bit words comprising the Cipher Key. For this standard, \textbf{\textit{Nk}} = 8.\\
+                            \textbf{\textit{Nr}} & Number of rounds, which is a function of \textbf{\textit{Nk}} and \textbf{\textit{Nb}} (which is
+                            fixed). For this standard, \textbf{\textit{Nr}} = 14.\\
+                            XOR & Exclusive-OR operation\\
+                            $\oplus$ & Exclusive-OR operation\\
+                            $\otimes$ & Multiplication of two polynomials (each with degree $<$ 4) modulo $x^{4}+1$\\
+                            $\bullet$ & Finite field multiplication\\
+                        \end{tabular}
+                \endgroup
 
         \section{MATHEMATICAL PRELIMINARIES}
 
-        \section{AES-256 ALGORITHM}
+        \section{AES-256}
 
         \section{IMPLEMENTATION}
 
@@ -47,6 +110,6 @@
 
         \section*{REFERENCES}
 
-    \end{multicols*}
+    \end{multicols}
 
 \end{document}

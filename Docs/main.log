@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  12 APR 2021 22:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  15 APR 2021 23:31
 entering extended mode
 **/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
 (/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
@@ -165,27 +165,38 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \mult@nat@firstbox=\box91
 \colbreak@box=\box92
 \mc@col@check@num=\count287
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen157
+\ar@mcellbox=\box93
+\extrarowheight=\dimen158
+\NC@list=\toks18
+\extratabsurround=\skip57
+\backup@length=\skip58
+\ar@cellbox=\box94
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-02 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count288
-\l__pdf_internal_box=\box93
+\l__pdf_internal_box=\box95
 ) (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -210,7 +221,7 @@ LaTeX Font Info:    ... okay on input line 11.
 * \footskip=30.0pt
 * \marginparwidth=57.0pt
 * \marginparsep=11.0pt
-* \columnsep=10.0pt
+* \columnsep=30.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -222,30 +233,45 @@ LaTeX Font Info:    ... okay on input line 11.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 18.
+(Font)              <14.4> on input line 43.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 18.
+(Font)              <7> on input line 43.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 74.
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
-[]\OT1/cmr/bx/it/10 Keywords|\OT1/cmr/bx/n/10 AES-256; cryptography; data
+Underfull \hbox (badness 7099) in paragraph at lines 75--75
+[]|\OT1/cmr/m/n/10 Key expan-
  []
 
-[1
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+[]|\OT1/cmr/m/n/10 Non-linear substitution ta-ble
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
+[]|\OT1/cmr/m/n/10 Number of columns (32-bit words)
+ []
+
+
+Overfull \vbox (10.79886pt too high) has occurred while \output is active []
+
+ [1
 
 
 {/home/hohaicongthuan/.miktex/texmfs/data/pdftex/config/pdftex.map}] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
 Here is how much of TeX's memory you used:
- 2309 strings out of 481257
- 35465 string characters out of 2907664
- 344947 words of memory out of 3000000
- 19546 multiletter control sequences out of 15000+200000
- 407474 words of font info for 40 fonts, out of 3000000 for 9000
- 0 hyphenation exceptions out of 8191
- 68i,4n,74p,465b,253s stack positions out of 5000i,500n,10000p,200000b,50000s
-</home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (1 page, 56907 bytes).
+ 2393 strings out of 481257
+ 36682 string characters out of 2907664
+ 362857 words of memory out of 3000000
+ 19606 multiletter control sequences out of 15000+200000
+ 407820 words of font info for 41 fonts, out of 3000000 for 9000
+ 18 hyphenation exceptions out of 8191
+ 68i,10n,74p,643b,271s stack positions out of 5000i,500n,10000p,200000b,50000s
+</home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (1 page, 107249 bytes).
 PDF statistics:
- 22 PDF objects out of 1000 (max. 8388607)
+ 38 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
