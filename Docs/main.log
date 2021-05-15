@@ -1,27 +1,23 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  15 APR 2021 23:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  14 MAY 2021 17:19
 entering extended mode
 **/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
 (/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/paper/paper.cls
-Document Class: paper 2008/05/30 1.0l LaTeX document class (wm).
-\hours=\count179
-\minutes=\count180
+L3 programming layer <2021-02-18> (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
 (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/base/size10.clo
 File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\beforetitlespace=\skip47
-\c@part=\count181
-\c@section=\count182
-\c@subsection=\count183
-\c@subsubsection=\count184
-\c@paragraph=\count185
-\c@subparagraph=\count186
-\exampleindent=\skip48
-\c@figure=\count187
-\c@table=\count188
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
 \bibindent=\dimen138
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -33,9 +29,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count189
-\Gm@cntv=\count190
-\c@Gm@tempcnt=\count191
+\Gm@cnth=\count187
+\Gm@cntv=\count188
+\c@Gm@tempcnt=\count189
 \Gm@bindingoffset=\dimen139
 \Gm@wd@mp=\dimen140
 \Gm@odd@mp=\dimen141
@@ -50,35 +46,35 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
  (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count192
-\c@Blindtext=\count193
-\c@blind@countparstart=\count194
-\blind@countxx=\count195
-\blindtext@numBlindtext=\count196
-\blind@countyy=\count197
-\c@blindlist=\count198
-\c@blindlistlevel=\count199
-\c@blindlist@level=\count266
-\blind@listitem=\count267
-\c@blind@listcount=\count268
-\c@blind@levelcount=\count269
-\blind@mathformula=\count270
-\blind@Mathformula=\count271
-\c@blind@randomcount=\count272
-\c@blind@randommax=\count273
-\c@blind@pangramcount=\count274
-\c@blind@pangrammax=\count275
+\c@blindtext=\count190
+\c@Blindtext=\count191
+\c@blind@countparstart=\count192
+\blind@countxx=\count193
+\blindtext@numBlindtext=\count194
+\blind@countyy=\count195
+\c@blindlist=\count196
+\c@blindlistlevel=\count197
+\c@blindlist@level=\count198
+\blind@listitem=\count199
+\c@blind@listcount=\count266
+\c@blind@levelcount=\count267
+\blind@mathformula=\count268
+\blind@Mathformula=\count269
+\c@blind@randomcount=\count270
+\c@blind@randommax=\count271
+\c@blind@pangramcount=\count272
+\c@blind@pangrammax=\count273
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/babel/babel.sty
 Package: babel 2021/03/03 3.55 The Babel package
  (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/babel/babel.def
 File: babel.def 2021/03/03 3.55 Babel common definitions
-\babel@savecnt=\count276
+\babel@savecnt=\count274
 \U@D=\dimen147
 \l@babelnohyphens=\language1
  (/home/hohaicongthuan/.miktex/texmfs/install/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count277
+\bbl@dirlevel=\count275
 
 *************************************
 * Local config file bblopts.cfg used
@@ -91,27 +87,27 @@ Language: british 2017/06/06 v3.3r English support from the babel system
 Language: english 2017/06/06 v3.3r English support from the babel system
 ))) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/paralist/paralist.sty
 Package: paralist 2017/01/22 v2.7 Extended list environments
-\pltopsep=\skip51
-\plpartopsep=\skip52
-\plitemsep=\skip53
-\plparsep=\skip54
+\pltopsep=\skip49
+\plpartopsep=\skip50
+\plitemsep=\skip51
+\plparsep=\skip52
 \pl@lab=\toks17
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count278
+\c@tracingmulticols=\count276
 \mult@box=\box47
 \multicol@leftmargin=\dimen148
-\c@unbalance=\count279
-\c@collectmore=\count280
-\doublecol@number=\count281
-\multicoltolerance=\count282
-\multicolpretolerance=\count283
+\c@unbalance=\count277
+\c@collectmore=\count278
+\doublecol@number=\count279
+\multicoltolerance=\count280
+\multicolpretolerance=\count281
 \full@width=\dimen149
 \page@free=\dimen150
 \premulticols=\dimen151
 \postmulticols=\dimen152
-\multicolsep=\skip55
-\multicolbaselineskip=\skip56
+\multicolsep=\skip53
+\multicolbaselineskip=\skip54
 \partial@page=\box48
 \last@line=\box49
 \maxbalancingoverflow=\dimen153
@@ -156,15 +152,15 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box88
 \@tempa=\box89
 \@tempa=\box90
-\c@minrows=\count284
-\c@columnbadness=\count285
-\c@finalcolumnbadness=\count286
+\c@minrows=\count282
+\c@columnbadness=\count283
+\c@finalcolumnbadness=\count284
 \last@try=\dimen154
 \multicolovershoot=\dimen155
 \multicolundershoot=\dimen156
 \mult@nat@firstbox=\box91
 \colbreak@box=\box92
-\mc@col@check@num=\count287
+\mc@col@check@num=\count285
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/array.sty
@@ -173,30 +169,84 @@ Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 \ar@mcellbox=\box93
 \extrarowheight=\dimen158
 \NC@list=\toks18
-\extratabsurround=\skip57
-\backup@length=\skip58
+\extratabsurround=\skip55
+\backup@length=\skip56
 \ar@cellbox=\box94
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip57
+
+For additional information on amsmath, use the `?' option.
+(/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen159
+)) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen160
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count286
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count287
+\leftroot@=\count288
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count289
+\DOTSCASE@=\count290
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box95
+\strutbox@=\box96
+\big@size=\dimen161
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count291
+\c@MaxMatrixCols=\count292
+\dotsspace@=\muskip16
+\c@parentequation=\count293
+\dspbrk@lvl=\count294
+\tag@help=\toks20
+\row@=\count295
+\column@=\count296
+\maxfields@=\count297
+\andhelp@=\toks21
+\eqnshift@=\dimen162
+\alignsep@=\dimen163
+\tagshift@=\dimen164
+\tagwidth@=\dimen165
+\totwidth@=\dimen166
+\lineht@=\dimen167
+\@envbody=\toks22
+\multlinegap=\skip58
+\multlinetaggap=\skip59
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-02 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count288
-\l__pdf_internal_box=\box95
+\l__color_backend_stack_int=\count298
+\l__pdf_internal_box=\box97
 ) (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -221,7 +271,7 @@ LaTeX Font Info:    ... okay on input line 36.
 * \footskip=30.0pt
 * \marginparwidth=57.0pt
 * \marginparsep=11.0pt
-* \columnsep=30.0pt
+* \columnsep=20.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -232,46 +282,41 @@ LaTeX Font Info:    ... okay on input line 36.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 43.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 43.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 74.
 
-Underfull \hbox (badness 7099) in paragraph at lines 75--75
-[]|\OT1/cmr/m/n/10 Key expan-
+Underfull \hbox (badness 6094) in paragraph at lines 63--64
+[]\OT1/cmr/bx/it/10 Keywords|\OT1/cmr/bx/n/10 AES-256; crypto-graphy; data
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 []|\OT1/cmr/m/n/10 Non-linear substitution ta-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--91
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
 []|\OT1/cmr/m/n/10 Number of columns (32-bit words)
  []
 
 
-Overfull \vbox (10.79886pt too high) has occurred while \output is active []
+Overfull \hbox (1.54721pt too wide) in paragraph at lines 121--129
+[] 
+ []
 
- [1
+[1
 
-
-{/home/hohaicongthuan/.miktex/texmfs/data/pdftex/config/pdftex.map}] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
+{/home/hohaicongthuan/.miktex/texmfs/data/pdftex/config/pdftex.map}] [2] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
 Here is how much of TeX's memory you used:
- 2393 strings out of 481257
- 36682 string characters out of 2907664
- 362857 words of memory out of 3000000
- 19606 multiletter control sequences out of 15000+200000
- 407820 words of font info for 41 fonts, out of 3000000 for 9000
+ 2890 strings out of 481257
+ 42614 string characters out of 2907664
+ 369013 words of memory out of 3000000
+ 20083 multiletter control sequences out of 15000+200000
+ 409518 words of font info for 48 fonts, out of 3000000 for 9000
  18 hyphenation exceptions out of 8191
- 68i,10n,74p,643b,271s stack positions out of 5000i,500n,10000p,200000b,50000s
-</home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (1 page, 107249 bytes).
+ 68i,10n,74p,643b,263s stack positions out of 5000i,500n,10000p,200000b,50000s
+</home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (2 pages, 164331 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
+ 61 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\documentclass[a4paper, 10pt]{paper}
+\documentclass[a4paper, 10pt]{article}
 
 % Use packages here
 \usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
@@ -8,9 +8,11 @@
 \usepackage{multicol} % This package arranges contents in columns
 \usepackage{indentfirst} % This package is used for indentation in paragraphs
 \usepackage{array}
+\usepackage{amsmath} % This package is used for conditional math equations
 
 % Preamble here
-\setlength\columnsep{30pt} % This is the default columnsep for all pages
+\setlength\columnsep{20pt} % This is the default columnsep for all pages
+
 \hyphenation{
     trans-form-ation 
     exponent-ially 
@@ -52,7 +54,7 @@
         %%%%%%%%%%%%
         % ABSTRACT %
         %%%%%%%%%%%%
-        \textbf{\textit{Abstract\textemdash}In the modern days, the amount of data grow exponentially, including classified and sensitive data that need to be kept secured. For this reason, many cryptographic techniques have been invented for the purpose. AES is one of them. It provides fast and secure data encryption which are the reasons this algorithm is chose for this project.}
+        \textbf{\textit{Abstract\textemdash}In the modern days, the amount of data grow exponentially, including classified and sensitive data that need to be kept secured. For this reason, many cryptographic techniques have been invented for the purpose. AES is one of them. It provides fast and secure data encryption which are the reasons this algorithm is chosen for this project.}
 
         \textbf{The goal of this project is to implement a fully functional AES encryption and decryption system using 256-bit key on FPGA.}
         
@@ -65,42 +67,84 @@
         %%%%%%%%%%%
         \section{INTRODUCTION}
             \textit{The Advanced Encryption Standard (AES)}, also known as \textit{Rijndael} is a specification for encrypting electronic data first introduced by the \textit{U.S. National Institute of Standards and Technology (NIST)} in 2001. It provides a fast and secure way to encrypt data and uses symmetric keys encryption which means both the encryption and decryption processes using the same key. The key length for AES could be 128, 192 and 256 bits. This paper concentrates on AES using 256-bit key which will be refered to as AES-256 for the rest of this paper.
-
+            
             \subsection{Concepts used in AES-256}
-                \begingroup
-                    \setlength{\tabcolsep}{10pt} % Default value: 6pt
-                    \renewcommand{\arraystretch}{2} % Default value: 1
+                % \begingroup
+                    % \setlength{\tabcolsep}{10pt} % Default value: 6pt
+                    % \renewcommand{\arraystretch}{1.5} % Default value: 1
                     \noindent
                     \begin{tabular}{m{2cm} m{5cm}}
-                        Key expansion & Routine used to generate a series of Round Keys from the Cipher Key.\\
-                        State & Intermediate Cipher result that can be pictured as a rectangular array
+                        \textbf{\textit{Key expansion}} & Routine used to generate a series of Round Keys from the Cipher Key.\\
+                        \hline
+                        \textbf{\textit{State}} & Intermediate Cipher result that can be pictured as a rectangular array
                         of bytes, having four rows and \textbf{\textit{Nb}} columns.\\
-                        S-box & Non-linear substitution table used in several byte substitution transformation and in the Key Expansion routine to perform a one-for-one substitution of a byte value.\\
-                        Word & A group of 32 bits that is treated either as a single entity or as an array of 4 bytes.\\
+                        \hline
+                        \textbf{\textit{S-box}} & Non-linear substitution table used in several byte substitution transformation and in the Key Expansion routine to perform a one-for-one substitution of a byte value.\\
+                        \hline
+                        \textbf{\textit{Word}} & A group of 32 bits that is treated either as a single entity or as an array of 4 bytes.\\
                     \end{tabular}
-                \endgroup
-
+                % \endgroup
+            
             \subsection{Abbreviations and Symbols used in AES-256}
-                \begingroup
+                % \begingroup
                     \setlength{\tabcolsep}{5pt} % Default value: 6pt
-                    \renewcommand{\arraystretch}{2} % Default value: 1
+                    \renewcommand{\arraystretch}{1.5} % Default value: 1
                     \noindent
                         \begin{tabular}{m{1cm} m{6.5cm}}
                             \textbf{\textit{Nb}} & Number of columns (32-bit words) comprising the State. For this
                             standard, \textbf{\textit{Nb}} = 4.\\
+                            \hline
                             \textbf{\textit{Nk}} & Number of 32-bit words comprising the Cipher Key. For this standard, \textbf{\textit{Nk}} = 8.\\
+                            \hline
                             \textbf{\textit{Nr}} & Number of rounds, which is a function of \textbf{\textit{Nk}} and \textbf{\textit{Nb}} (which is
                             fixed). For this standard, \textbf{\textit{Nr}} = 14.\\
+                            \hline
                             XOR & Exclusive-OR operation\\
+                            \hline
                             $\oplus$ & Exclusive-OR operation\\
+                            \hline
                             $\otimes$ & Multiplication of two polynomials (each with degree $<$ 4) modulo $x^{4}+1$\\
+                            \hline
                             $\bullet$ & Finite field multiplication\\
                         \end{tabular}
-                \endgroup
-
-        \section{MATHEMATICAL PRELIMINARIES}
+                % \endgroup
 
         \section{AES-256}
+            \subsection{Key Expansion}
+                The Key Expansion routine in AES-256 takes a 256-bit cipher key and generate a set of $Nb(Nr+1)$ (which is 60) words. These words are smaller parts that make up round keys, each round key has four words. These round keys involve in the \textit{Add Round Key} in the encryption and decryption process.
+
+                There are 3 functions that participate in the key scheduling process:
+
+                % \begingroup
+                    \setlength{\tabcolsep}{5pt} % Default value: 6pt
+                    \renewcommand{\arraystretch}{1.5} % Default value: 1
+                    \noindent
+                        \begin{tabular}{m{2cm} m{6cm}}
+                            \textbf{\textit{RotWord}} & Takes a four-byte word $[a_{0},a_{1},a_{2},a_{3}]$ and performs rotation one byte to the left and returns $[a_{1},a_{2},a_{3},a_{0}]$.\\
+                            \hline
+                            \textbf{\textit{SubWord}} & Takes a four-byte word and substitute each byte with the corresponding byte in the S-box.\\
+                            \hline
+                            \textbf{\textit{Rcon}} & The round constants, which is given in the form $[rc_{i},00_{16},00_{16},00_{16}]$ with $i$ starts from 1. $rc_{i}$ is defined as in (1)\\
+                        \end{tabular}
+
+                        \begin{equation}
+                            rc_{i}=
+                            \begin{cases}
+                                1 & \text{if } i=1\\
+                                2 \cdot  rc_{i-1} & \text{if } i>1 \text{ and } rc_{i-1}<80_{16}\\
+                                \left(2 \cdot  rc_{i-1}\right)\oplus 11\text{B}_{16} & \text{if } i>1 \text{ and } rc_{i-1} \ge 80_{16}
+                            \end{cases}
+                        \end{equation}
+                % \endgroup
+
+            \subsection{Algorithm}
+                In AES-256, the first two round keys (first 8 words) are filled with the cipher key. For the rest, $w[i]$ word is generated using $w[i-1]$ word.
+
+                Loop through the following steps until we have generated $Nb(Nr+1)$ words.
+
+                If $i$ is divisible by \textbf{\textit{Nk}}, $w[i-1]$ is rotated by the function \textbf{\textit{RotWord}} and then substituted by the function \textbf{\textit{SubWord}}. The final result is \textbf{\textit{XOR}}-ed with \textbf{\textit{Rcon[i/Nk]}} and assigned to $w[i]$. Otherwise, if $i$ dividing by \textbf{\textit{Nk}} results in $4$ as the remainder, only \textbf{\textit{SubWord}} is performed on $w[i-1]$.
+
+                $w[i]$ will then be \textbf{\textit{XOR}}-ed with $w[i-Nk]$ and the result is assigned back to itself. $i$ is incremented by 1.
 
         \section{IMPLEMENTATION}
 
@@ -108,7 +152,16 @@
 
         \section{CONCLUSION}
 
-        \section*{REFERENCES}
+        \begin{thebibliography}{3}
+            \bibitem{AES}
+            Federal Information Processing Standard (FIPS) 197.
+            \textit{Advanced Encryption Standard (AES)}
+            26 November 2001.
+
+            \bibitem{sam}
+            Sam Trenholme.
+            \textit{Rijndael's key schedule.\\https://samiam.org/key-schedule.html}.
+        \end{thebibliography}
 
     \end{multicols}
 
