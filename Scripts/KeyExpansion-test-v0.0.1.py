@@ -1,5 +1,3 @@
-# This function schedules a 256-bit key into 15 round keys
-
 import numpy as np
 
 np.set_printoptions(formatter={'int':lambda x:hex(int(x))})
@@ -33,6 +31,8 @@ SubBox =   [[0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0
 key = [ 0x60, 0x3d, 0xeb, 0x10, 0x15, 0xca, 0x71, 0xbe, 0x2b, 0x73, 0xae, 0xf0, 0x85, 0x7d, 0x77, 0x81,
         0x1f, 0x35, 0x2c, 0x07, 0x3b, 0x61, 0x08, 0xd7, 0x2d, 0x98, 0x10, 0xa3, 0x09, 0x14, 0xdf, 0xf4]
 
+expected_round_keys = []
+
 # Rotate word one bit to the left
 def RotWord(a):
     a[0], a[1], a[2], a[3] = a[1], a[2], a[3], a[0]
@@ -40,73 +40,37 @@ def RotWord(a):
 
 # Subtitute a word
 def SubWord(a):
-    temp = a
     for i in range(4):
-        x = (temp[i] & 0xF0) >> 4
-        y = temp[i] & 0x0F
-        temp[i] = SubBox[x][y]
-    return temp
+        x = (a[i] & 0xF0) >> 4
+        y = a[i] & 0x0F
+        a[i] = SubBox[x][y]
+    return a
 
 # XOR two words
 def XORWord(a, b):
-    temporary = a
     for i in range(4):
-        temporary[i] = a[i] ^ b[i]
-    return temporary
+        a[i] = a[i] ^ b[i]
+    return a
 
-def KeySchedule(key):
-    w = np.zeros((60, 4), np.uint8)
-    print(w)
-    i = 0
+##########################################################################
 
-    while (i < 8):
-        w[i] = [key[4 * i], key[4 * i + 1], key[4 * i + 2], key[4 * i + 3]]
-        i = i + 1
-    print(w)
-    
-    i = 8
+w = np.zeros((60, 4), np.uint8)
 
-    while (i < 60):
-        temp = w[i - 1]
-        temp_2 = w[i - 8]
-        if (i % 8 == 0):
-            temp = RotWord(temp)
-            temp = SubWord(temp)
-            temp = XORWord(temp, RoundConstant[int(i/8)])
-        elif (i % 8 == 4):
-            temp = SubWord(temp)
+i = 0
+while (i < 8):
+    w[i] = [key[4 * i], key[4 * i + 1], key[4 * i + 2], key[4 * i + 3]]
+    i = i + 1
 
-        w[i] = XORWord(temp_2, temp)
-        # for k in temp:
-        #     print(hex(k).replace("0x", "").zfill(2), end=" ", sep=" ")
-        # print()
-        print(i)
-        print(w)
-        # print(i)
-        # x = 0
-        # for j in w:
-        #     for k in j:
-        #         print(hex(k).replace("0x", "").zfill(2), end=" ", sep=" ")
-        #     x = x + 1
-        #     if (x % 4 == 0):
-        #         print()
-        # print("\n")
+i = 8
+while (i < 60):
+    temp = np.copy(w[i - 1])
+    temp_2 = np.copy(w[i - 8])
+    if (i % 8 == 0):
+        temp = XORWord(SubWord(RotWord(temp)), RoundConstant[int(i/8)])
+    elif (i % 8 == 4):
+        temp = SubWord(temp)
 
-        i = i + 1
+    w[i] = XORWord(temp_2, temp)
+    i = i + 1
 
-    # x = 0
-    # for i in w:
-    #     for j in i:
-    #         print(hex(j).replace("0x", "").zfill(2), end=" ", sep=" ")
-    #     x = x + 1
-    #     if (x % 1 == 0):
-    #         print()
-    # print(w)
-
-
-KeySchedule(key)
-# w.append([1, 2, 3, 4])
-# w.append([5, 6, 7, 8])
-# w.append(33)
-# print(XORWord([1, 2, 3, 4], [5, 6 ,7, 8]))
-# print(RotWord([0x01, 0x02, 0x03, 0x04]))
+print(w)

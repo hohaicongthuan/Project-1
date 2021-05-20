@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1620987565 "/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex" "/home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf" "main" 1620987566
+["pdflatex"] 1621430839 "/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex" "/home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf" "main" 1621430840
   "/home/hohaicongthuan/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1616855478 6307989 7f1f3c45531c4494da7a82bbc2e8061c ""
   "/home/hohaicongthuan/.miktex/texmfs/data/pdftex/config/pdftex.map" 1618497547 32752 8a6cd34930f6a8177cc68ef63685b54d ""
   "/home/hohaicongthuan/.miktex/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1616461138 1004 54797486969f23fa377b128694d548df ""
@@ -57,13 +57,13 @@
   "/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/multicol.sty" 1616855503 32634 c210a2fe2c4e4f5377fd15ac2ac8fa53 ""
   "/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/latex-tools/xspace.sty" 1616855503 4698 23df9d33e5eea3ced2e9856cf0fb6da7 ""
   "/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/paralist/paralist.sty" 1617984395 15336 3ae8f09d46ee7deba88f5caff0b5a0f7 ""
-  "/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux" 1620987566 1095 d14633d0eb87eb9e3fad475f7f623cfc ""
-  "/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex" 1620987564 8724 ce9db9f58dc48d05521847dc61696bab ""
-  "main.aux" 1620987566 1095 d14633d0eb87eb9e3fad475f7f623cfc "pdflatex"
-  "main.tex" 1620987564 8724 ce9db9f58dc48d05521847dc61696bab ""
+  "/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux" 1621430840 1095 d14633d0eb87eb9e3fad475f7f623cfc ""
+  "/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex" 1621430838 9153 1da7a5c1a50b2eca02ff52ac13131037 ""
+  "main.aux" 1621430840 1095 d14633d0eb87eb9e3fad475f7f623cfc "pdflatex"
+  "main.tex" 1621430838 9153 1da7a5c1a50b2eca02ff52ac13131037 ""
   (generated)
   "main.pdf"
-  "main.aux"
-  "main.log"
   "/home/hohaicongthuan/GitHub/Project-1/Docs/main.log"
+  "main.aux"
   "/home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf"
+  "main.log"
