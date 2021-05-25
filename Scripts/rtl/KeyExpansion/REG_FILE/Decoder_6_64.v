@@ -1,0 +1,74 @@
+module Decoder_6_64(data_in, data_out);
+    input [5:0] data_in;
+    output reg [63:0] data_out;
+
+    always @ (data_in) begin
+        case (data_in)
+            6'd0: data_out = 64'd1;
+            6'd1: data_out = 64'd2;
+            6'd2: data_out = 64'd4;
+            6'd3: data_out = 64'd8;
+            6'd4: data_out = 64'd16;
+            6'd5: data_out = 64'd32;
+            6'd6: data_out = 64'd64;
+            6'd7: data_out = 64'd128;
+            6'd8: data_out = 64'd256;
+            6'd9: data_out = 64'd512;
+            6'd10: data_out = 64'd1024;
+            6'd11: data_out = 64'd2048;
+            6'd12: data_out = 64'd4096;
+            6'd13: data_out = 64'd8192;
+            6'd14: data_out = 64'd16384;
+            6'd15: data_out = 64'd32768;
+            6'd16: data_out = 64'd65536;
+            6'd17: data_out = 64'd131072;
+            6'd18: data_out = 64'd262144;
+            6'd19: data_out = 64'd524288;
+            6'd20: data_out = 64'd1048576;
+            6'd21: data_out = 64'd2097152;
+            6'd22: data_out = 64'd4194304;
+            6'd23: data_out = 64'd8388608;
+            6'd24: data_out = 64'd16777216;
+            6'd25: data_out = 64'd33554432;
+            6'd26: data_out = 64'd67108864;
+            6'd27: data_out = 64'd134217728;
+            6'd28: data_out = 64'd268435456;
+            6'd29: data_out = 64'd536870912;
+            6'd30: data_out = 64'd1073741824;
+            6'd31: data_out = 64'd2147483648;
+            6'd32: data_out = 64'd4294967296;
+            6'd33: data_out = 64'd8589934592;
+            6'd34: data_out = 64'd17179869184;
+            6'd35: data_out = 64'd34359738368;
+            6'd36: data_out = 64'd68719476736;
+            6'd37: data_out = 64'd137438953472;
+            6'd38: data_out = 64'd274877906944;
+            6'd39: data_out = 64'd549755813888;
+            6'd40: data_out = 64'd1099511627776;
+            6'd41: data_out = 64'd2199023255552;
+            6'd42: data_out = 64'd4398046511104;
+            6'd43: data_out = 64'd8796093022208;
+            6'd44: data_out = 64'd17592186044416;
+            6'd45: data_out = 64'd35184372088832;
+            6'd46: data_out = 64'd70368744177664;
+            6'd47: data_out = 64'd140737488355328;
+            6'd48: data_out = 64'd281474976710656;
+            6'd49: data_out = 64'd562949953421312;
+            6'd50: data_out = 64'd1125899906842624;
+            6'd51: data_out = 64'd2251799813685248;
+            6'd52: data_out = 64'd4503599627370496;
+            6'd53: data_out = 64'd9007199254740992;
+            6'd54: data_out = 64'd18014398509481984;
+            6'd55: data_out = 64'd36028797018963968;
+            6'd56: data_out = 64'd72057594037927936;
+            6'd57: data_out = 64'd144115188075855872;
+            6'd58: data_out = 64'd288230376151711744;
+            6'd59: data_out = 64'd576460752303423488;
+            6'd60: data_out = 64'd1152921504606846976;
+            6'd61: data_out = 64'd2305843009213693952;
+            6'd62: data_out = 64'd4611686018427387904;
+            6'd63: data_out = 64'd9223372036854775808;
+            default: data_out = 64'd1;
+        endcase
+    end
+endmodule
