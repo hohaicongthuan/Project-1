@@ -1,6 +1,6 @@
-module S-Box(data_in, data_out);
-    input   [7:0] data_in;
-    output  [7:0] data_out;
+module SBox(data_in, data_out);
+    input       [7:0] data_in;
+    output reg  [7:0] data_out;
 
     always @ (*) begin
         case (data_in)

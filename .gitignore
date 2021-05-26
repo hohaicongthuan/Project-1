@@ -6,3 +6,4 @@ Scripts/AES-256_env
 **/*.aux
 **/*.toc
 **/*.gz
+**/*.bak

@@ -1,4 +1,4 @@
-module RotWord();
+module RotWord(data_in, data_out);
     input   [31:0] data_in;
     output  [31:0] data_out;
 
