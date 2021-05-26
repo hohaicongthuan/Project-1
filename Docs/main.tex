@@ -1,7 +1,7 @@
 \documentclass[a4paper, 10pt]{article}
 
 % Use packages here
-\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[a4paper, left=1cm, right=1cm, top=1.5cm, bottom=2cm]{geometry}
 \usepackage{blindtext} % This package is used for testing
 \usepackage[british]{babel} % This package is used for localisation
 \usepackage{paralist} % This package creates compact lists
@@ -9,9 +9,15 @@
 \usepackage{indentfirst} % This package is used for indentation in paragraphs
 \usepackage{array}
 \usepackage{amsmath} % This package is used for conditional math equations
+\usepackage{graphicx} % This package is used for inserting and manipulating on images
+\usepackage{titlesec} % For section, subsection and subsubsection and so on.
 
 % Preamble here
 \setlength\columnsep{20pt} % This is the default columnsep for all pages
+
+\setcounter{secnumdepth}{4}
+
+\graphicspath{ {../Diagrams/} {../Diagrams/KeyExpansion/} }
 
 \hyphenation{
     trans-form-ation 
@@ -126,7 +132,17 @@
                             \hline
                             \textbf{\textit{Rcon}} & The round constants, which is given in the form $[rc_{i},00_{16},00_{16},00_{16}]$ with $i$ starts from 1. $rc_{i}$ is defined as in (1)\\
                         \end{tabular}
+                    \end{multicols}
 
+                    \noindent
+                    \begin{figure}[t]
+                        \centering
+                        \includegraphics[width=.7\textwidth]{S-Box.png}
+                        \caption{Substitution Box (S-Box) used in SubBytes transformation.}
+                        \label{fig:SBox}
+                    \end{figure}
+
+                    \begin{multicols}{2}
                         \begin{equation}
                             rc_{i}=
                             \begin{cases}
@@ -137,7 +153,7 @@
                         \end{equation}
                 % \endgroup
 
-            \subsection{Algorithm}
+            \subsubsection{Algorithm}
                 In AES-256, the first two round keys (first 8 words) are filled with the cipher key. For the rest, $w[i]$ word is generated using $w[i-1]$ word.
 
                 Loop through the following steps until we have generated $Nb(Nr+1)$ words.
@@ -148,11 +164,70 @@
 
                 After finishing the algorithm, a set of $Nb(Nr+1)$ words is generated. Round Keys are created by grouping four words each sequentially. At this point, we have one round key for the initial round and 14 round keys for 14 rounds during the encryption or decryption processes, with the total of 15 round keys.
 
+            \subsection{Bytes Substitution}
+
+            Bytes Substitution transformation is denoted by \textit{SubBytes} function. This independently replaces all the bytes in the \textit{State} with the corresponding bytes using a \textit{substituion box} (or \textit{S-Box}), which is shown in the figure \ref{fig:SBox}.
+
+            The higher 4 bits determine the coordinate of the row and lower 4 bits determine the coordinate of the column. For example, ...
+
+            \subsection{Shift Rows}
+
+            In the \textit{ShiftRows} transformation, the last three row of the \textit{State} will be rotated to the left with different byte offsets.
+
+            The first row of the \textit{State} is unaffected. The second row will be rotated to the left by one byte, two bytes for the third row, and three bytes for the fourth row. For instance, ...
+
+            \subsection{Mix Columns}
+
+            \textit{MixColumns} transformation operates column-by-column on the \textit{State}. Each column is multiplied with a fixed matrix which results in a new column with new values.
+
+            The fixed matrix used in \textit{MixColumns} is shown below:
+
+            \begin{equation}
+            \begin{bmatrix}
+                02 & 03 & 01 & 01\\
+                01 & 02 & 03 & 01\\
+                01 & 01 & 02 & 03\\
+                03 & 01 & 01 & 02
+            \end{bmatrix}
+        \end{equation}
+
+            \subsection{Add Round Keys}
+
+            Round Keys generated from \textit{Key Expansion} rountine will be used in this transformation. Round Key is added to the \textit{State} by a bitwise XOR operation with the corresponding bytes.
+
         \section{IMPLEMENTATION}
+
+            \subsection{Key Expansion}
+
+            The design of the Key Expansion routine is shown in figure \ref{fig:KeyExpansion}. As in the design, the total of 15 round keys, including round key for the initial round, will be created first before they could involve in the \textbf{\textit{Add Round Key}} function in the encryption and decryption process.
+            
+            This circuit will generate words that make up the Round Key one-by-one and store them in the \textit{Register File}. The \textit{Register File} has the total amount of 64 registers but only 60 of them are used because we only need to generate 60 words.
+
+            The module \textit{Rcon} and \textit{SubWord} are implemented in the form of look-up tables (LUTs). A \textit{Counter} will keep track of which word the circuit is currently generating. After done generating all words, the counter will stop itself until there is a \textit{Reset} signal and \textit{ready} signal is set indicating all round keys have been generated. Each round key can be retrieved by inputting the appropriate address (from 0 to 14) of that round key. Note that round keys can only be correctly retrieved when the \textit{ready} signal is set.
+
+            \subsection{Bytes Substitution}
+
+            Text here.
+
+            \subsection{Shift Rows}
+
+            Text here.
+
+            \subsection{Mix Columns}
+
+            Text here.
+
+            \subsection{Add Round Keys}
+
+            Text here.
 
         \section{RESULTS}
 
+        (N/A)
+
         \section{CONCLUSION}
+
+        (N/A)
 
         %%%%%%%%%%%%%%%%%%%%%%%%%%
         % REFERENCE SECTION HERE %
@@ -166,6 +241,10 @@
             \bibitem{sam}
             Sam Trenholme.
             \textit{Rijndael's key schedule.\\https://samiam.org/key-schedule.html}.
+
+            \bibitem{understand_mixcol}
+            Kit Choy Xintong.
+            \textit{Understanding AES Mix-Columns Transformation Calculation}.
         \end{thebibliography}
 
     \end{multicols}
