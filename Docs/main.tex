@@ -134,10 +134,13 @@
                         \end{tabular}
                     \end{multicols}
 
+                    %%%%%%%%%%%%%%%%
+                    % S-BOX FIGURE %
+                    %%%%%%%%%%%%%%%%
                     \noindent
                     \begin{figure}[t]
                         \centering
-                        \includegraphics[width=.7\textwidth]{S-Box.png}
+                        \includegraphics[width=.75\textwidth]{S-Box.png}
                         \caption{Substitution Box (S-Box) used in SubBytes transformation.}
                         \label{fig:SBox}
                     \end{figure}
@@ -168,13 +171,31 @@
 
             Bytes Substitution transformation is denoted by \textit{SubBytes} function. This independently replaces all the bytes in the \textit{State} with the corresponding bytes using a \textit{substituion box} (or \textit{S-Box}), which is shown in the figure \ref{fig:SBox}.
 
-            The higher 4 bits determine the coordinate of the row and lower 4 bits determine the coordinate of the column. For example, ...
+            The higher 4 bits determine the coordinate of the row and lower 4 bits determine the coordinate of the column. For example, the byte \textbf{5A}, we have $x=5$ \& $y=A$, these values point to the new value in the table, which is \textbf{BE}. So \textbf{5A} will be substituted by \textbf{BE}.
 
             \subsection{Shift Rows}
 
             In the \textit{ShiftRows} transformation, the last three row of the \textit{State} will be rotated to the left with different byte offsets.
 
-            The first row of the \textit{State} is unaffected. The second row will be rotated to the left by one byte, two bytes for the third row, and three bytes for the fourth row. For instance, ...
+            The first row of the \textit{State} is unaffected. The second row will be rotated to the left by one byte, two bytes for the third row, and three bytes for the fourth row. Therefore,
+            \begin{equation}
+                \begin{bmatrix}
+                    a_{0} & a_{4} & a_{8} & a_{12}\\
+                    a_{1} & a_{5} & a_{9} & a_{13}\\
+                    a_{2} & a_{6} & a_{10} & a_{14}\\
+                    a_{3} & a_{7} & a_{11} & a_{15}
+                \end{bmatrix}
+            \end{equation}
+            will become
+            \begin{equation}
+                \begin{bmatrix}
+                    a_{0} & a_{4} & a_{8} & a_{12}\\
+                    a_{5} & a_{9} & a_{13} & a_{1}\\
+                    a_{10} & a_{14} & a_{2} & a_{6}\\
+                    a_{15} & a_{3} & a_{7} & a_{11}
+                \end{bmatrix}
+            \end{equation}
+            after \textit{ShiftRows} transformation.
 
             \subsection{Mix Columns}
 
@@ -194,12 +215,25 @@
             \subsection{Add Round Keys}
 
             Round Keys generated from \textit{Key Expansion} rountine will be used in this transformation. Round Key is added to the \textit{State} by a bitwise XOR operation with the corresponding bytes.
+        \end{multicols}
+    
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % KEY EXPANSION DIAGRAM FIGURE %
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \noindent
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=\textwidth]{KeyExpansion.png}
+            \caption{Diagram of Key Expansion.}
+            \label{fig:KeyExpansion}
+        \end{figure}
 
+        \begin{multicols}{2}
         \section{IMPLEMENTATION}
 
             \subsection{Key Expansion}
 
-            The design of the Key Expansion routine is shown in figure \ref{fig:KeyExpansion}. As in the design, the total of 15 round keys, including round key for the initial round, will be created first before they could involve in the \textbf{\textit{Add Round Key}} function in the encryption and decryption process.
+            The design of the Key Expansion routine is shown in figure \ref{fig:KeyExpansion}. As in the design, the total of 15 round keys, including round key for the initial round, will be created firstbefore they could involve in the \textbf{\textit{Add Round Key}} function in the encryption and decryption process.
             
             This circuit will generate words that make up the Round Key one-by-one and store them in the \textit{Register File}. The \textit{Register File} has the total amount of 64 registers but only 60 of them are used because we only need to generate 60 words.
 
@@ -238,9 +272,21 @@
             \textit{Advanced Encryption Standard (AES)}
             26 November 2001.
 
-            \bibitem{sam}
+            \bibitem{sam-key-expansion}
             Sam Trenholme.
             \textit{Rijndael's key schedule.\\https://samiam.org/key-schedule.html}.
+
+            \bibitem{sam-mix-columns}
+            Sam Trenholme.
+            \textit{Rijndael's mix column stage.\\https://samiam.org/mix-column.html}.
+
+            \bibitem{sam-galois-field}
+            Sam Trenholme.
+            \textit{AES' Galois field.\\https://samiam.org/galois.html}.
+
+            \bibitem{sam-s-box}
+            Sam Trenholme.
+            \textit{Rijndael's S-Box.\\https://samiam.org/s-box.html}.
 
             \bibitem{understand_mixcol}
             Kit Choy Xintong.
