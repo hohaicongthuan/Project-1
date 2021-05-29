@@ -6,12 +6,12 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
     output [127:0] Out_Key;
 
     // Internal wires
-    wire Mod_8_Eq_4_Out, Less_Than_8_Out, Greater_Equal_61_Out;
+    wire Mod_8_Eq_4_Out, Mod_8_Eq_0_Out, Less_Than_8_Out, Greater_Equal_61_Out;
     wire [5:0] Counter_Out, Minus_1_Out, Minus_8_Out, Right_Shift_3_Out;
     wire [31:0] word_0, word_1, word_2, word_3, word_4, word_5, word_6, word_7,
                 word_0_out, word_1_out, word_2_out, word_3_out, word_4_out, word_5_out, word_6_out, word_7_out,
                 MUX_8_1_Out,
-                MUX_2_1_0_Out, MUX_2_1_1_Out,
+                MUX_2_1_0_Out, MUX_2_1_1_Out, MUX_2_1_2_Out,
                 XOR_Word_0_Out, XOR_Word_1_Out,
                 REG_FILE_Out_A, REG_FILE_Out_B,
                 word_minus_1, word_minus_8,
@@ -97,21 +97,21 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
         .En(En)
     );
 
-    REG REG_Word_Minus_1(
-        .data_out(word_minus_1),
-        .data_in(REG_FILE_Out_A),
-        .Clk(Clk),
-        .Rst(Rst),
-        .En(En)
-    );
+    // REG REG_Word_Minus_1(
+    //     .data_out(word_minus_1),
+    //     .data_in(REG_FILE_Out_A),
+    //     .Clk(~Clk),
+    //     .Rst(Rst),
+    //     .En(En)
+    // );
 
-    REG REG_Word_Minus_8(
-        .data_out(word_minus_8),
-        .data_in(REG_FILE_Out_B),
-        .Clk(Clk),
-        .Rst(Rst),
-        .En(En)
-    );
+    // REG REG_Word_Minus_8(
+    //     .data_out(word_minus_8),
+    //     .data_in(REG_FILE_Out_B),
+    //     .Clk(~Clk),
+    //     .Rst(Rst),
+    //     .En(En)
+    // );
 
     MUX_8_1 MUX_8_1_Inst0(
         .Sel(Minus_1_Out[2:0]),
@@ -133,10 +133,16 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
         .data_out(MUX_2_1_0_Out)
     );
     MUX_2_1 MUX_2_1_Inst1(
-        .in_1(SubWord_0_Out),
-        .in_0(XOR_Word_0_Out),
-        .Sel(Mod_8_Eq_4_Out),
+        .in_1(XOR_Word_0_Out),
+        .in_0(MUX_2_1_2_Out),
+        .Sel(Mod_8_Eq_0_Out),
         .data_out(MUX_2_1_1_Out)
+    );
+    MUX_2_1 MUX_2_1_Inst2(
+        .in_1(SubWord_0_Out),
+        .in_0(REG_FILE_Out_A),
+        .Sel(Mod_8_Eq_4_Out),
+        .data_out(MUX_2_1_2_Out)
     );
 
     REG_FILE REG_FILE_Inst0(
@@ -145,7 +151,7 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
         .Addr_A(Minus_1_Out),
         .Addr_B(Minus_8_Out),
         .Addr_Key(Addr_Key),
-        .Clk(Clk),
+        .Clk(~Clk),
         .Rst(Rst),
         .Out_A(REG_FILE_Out_A),
         .Out_B(REG_FILE_Out_B),
@@ -153,11 +159,11 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
     );
 
     RotWord RotWord_Inst0(
-        .data_in(word_minus_1),
+        .data_in(REG_FILE_Out_A),
         .data_out(RotWord_0_Out)
     );
     SubWord SubWord_Inst0(
-        .data_in(word_minus_1),
+        .data_in(REG_FILE_Out_A),
         .data_out(SubWord_0_Out)
     );
     SubWord SubWord_Inst1(
@@ -172,7 +178,7 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
     );
     XOR_Word XOR_Word_Inst1(
         .in_A(MUX_2_1_1_Out),
-        .in_B(word_minus_8),
+        .in_B(REG_FILE_Out_B),
         .data_out(XOR_Word_1_Out)
     );
 
@@ -188,6 +194,10 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
     Mod_8_Eq_4 Mod_8_Eq_4_Inst0(
         .data_in(Counter_Out),
         .data_out(Mod_8_Eq_4_Out)
+    );
+    Mod_8_Eq_0 Mod_8_Eq_0_Inst0(
+        .data_in(Counter_Out),
+        .data_out(Mod_8_Eq_0_Out)
     );
     Minus_1 Minus_1_Inst0(
         .data_in(Counter_Out),
