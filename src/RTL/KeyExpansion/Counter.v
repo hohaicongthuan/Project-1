@@ -9,7 +9,7 @@ module Counter(Rst, En, Clk, data_out);
         else begin
             if (En) begin
                 if (Counter_Mem >= 61) Counter_Mem <= Counter_Mem;
-                else Counter_Mem <= Counter_Mem + 1;
+                else Counter_Mem <= Counter_Mem + 6'd1;
             end else Counter_Mem <= Counter_Mem;
         end
     end

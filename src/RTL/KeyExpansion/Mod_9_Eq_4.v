@@ -1,4 +1,4 @@
-module Mod_8_Eq_4(data_in, data_out);
+module Mod_9_Eq_4(data_in, data_out);
     input [5:0] data_in;
     output data_out;
 

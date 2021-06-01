@@ -42,8 +42,19 @@
 # for i in range(64):
 #     print(".in_", i, "(Reg_", i, "_Out),", sep="")
 
-for i in range(15):
-    print(".in_", i, "({Reg_", 4*i+4, "_Out, Reg_", 4*i+3, "_Out, Reg_", 4*i+2, "_Out, Reg_", 4*i+1, "_Out}),", sep="")
+# for i in range(15):
+#     print(".in_", i, "({Reg_", 4*i+4, "_Out, Reg_", 4*i+3, "_Out, Reg_", 4*i+2, "_Out, Reg_", 4*i+1, "_Out}),", sep="")
 
 # for i in range(64):
 #     print("Reg_", i, "_Out,", sep="")
+
+head = 7
+tail = 0
+
+for i in range(16):
+    print("SBox SBox_Inst", i, "(", sep="")
+    print("    .data_in(data_in[", head, ":", tail, "],", sep="")
+    print("    .data_out(data_out[", head, ":", tail, "]", sep="")
+    print(");")
+    head += 8
+    tail += 8

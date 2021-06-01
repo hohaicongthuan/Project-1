@@ -6,7 +6,7 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
     output [127:0] Out_Key;
 
     // Internal wires
-    wire Mod_8_Eq_4_Out, Mod_8_Eq_0_Out, Less_Than_8_Out, Greater_Equal_61_Out;
+    wire Mod_9_Eq_4_Out, Mod_9_Eq_0_Out, Less_Than_9_Out, Greater_Equal_61_Out;
     wire [5:0] Counter_Out, Minus_1_Out, Minus_8_Out, Right_Shift_3_Out;
     wire [31:0] word_0, word_1, word_2, word_3, word_4, word_5, word_6, word_7,
                 word_0_out, word_1_out, word_2_out, word_3_out, word_4_out, word_5_out, word_6_out, word_7_out,
@@ -129,19 +129,19 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
     MUX_2_1 MUX_2_1_Inst0(
         .in_1(MUX_8_1_Out),
         .in_0(XOR_Word_1_Out),
-        .Sel(Less_Than_8_Out),
+        .Sel(Less_Than_9_Out),
         .data_out(MUX_2_1_0_Out)
     );
     MUX_2_1 MUX_2_1_Inst1(
         .in_1(XOR_Word_0_Out),
         .in_0(MUX_2_1_2_Out),
-        .Sel(Mod_8_Eq_0_Out),
+        .Sel(Mod_9_Eq_0_Out),
         .data_out(MUX_2_1_1_Out)
     );
     MUX_2_1 MUX_2_1_Inst2(
         .in_1(SubWord_0_Out),
         .in_0(REG_FILE_Out_A),
-        .Sel(Mod_8_Eq_4_Out),
+        .Sel(Mod_9_Eq_4_Out),
         .data_out(MUX_2_1_2_Out)
     );
 
@@ -191,13 +191,13 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
         .data_in(Counter_Out),
         .data_out(Minus_8_Out)
     );
-    Mod_8_Eq_4 Mod_8_Eq_4_Inst0(
+    Mod_9_Eq_4 Mod_9_Eq_4_Inst0(
         .data_in(Counter_Out),
-        .data_out(Mod_8_Eq_4_Out)
+        .data_out(Mod_9_Eq_4_Out)
     );
-    Mod_8_Eq_0 Mod_8_Eq_0_Inst0(
+    Mod_9_Eq_0 Mod_9_Eq_0_Inst0(
         .data_in(Counter_Out),
-        .data_out(Mod_8_Eq_0_Out)
+        .data_out(Mod_9_Eq_0_Out)
     );
     Minus_1 Minus_1_Inst0(
         .data_in(Counter_Out),
@@ -207,9 +207,9 @@ module Key_Expansion(Rst, En, Clk, data_in, Addr_Key, ready, Out_Key);
         .data_in(Counter_Out),
         .data_out(Right_Shift_3_Out)
     );
-    Less_Than_8 Less_Than_8_Inst0(
+    Less_Than_9 Less_Than_9_Inst0(
         .data_in(Counter_Out),
-        .data_out(Less_Than_8_Out)
+        .data_out(Less_Than_9_Out)
     );
     Greater_Equal_61 Greater_Equal_61_Inst0(
         .data_in(Counter_Out),

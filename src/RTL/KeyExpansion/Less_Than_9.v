@@ -1,4 +1,4 @@
-module Less_Than_8(data_in, data_out);
+module Less_Than_9(data_in, data_out);
     input [5:0] data_in;
     output data_out;
 
