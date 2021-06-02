@@ -53,8 +53,9 @@ tail = 0
 
 for i in range(16):
     print("SBox SBox_Inst", i, "(", sep="")
-    print("    .data_in(data_in[", head, ":", tail, "],", sep="")
-    print("    .data_out(data_out[", head, ":", tail, "]", sep="")
+    print("    .data_in(data_in[", head, ":", tail, "]),", sep="")
+    print("    .data_out(data_out[", head, ":", tail, "])", sep="")
     print(");")
     head += 8
     tail += 8
+

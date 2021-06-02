@@ -1,6 +1,6 @@
 module gmul_2(data_in, data_out);
     input [7:0] data_in;
-    output [7:0] data_out;
+    output reg [7:0] data_out;
 
     always @ (*) begin
         if (data_in[7]) begin
