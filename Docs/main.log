@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  29 MAY 2021 21:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  4 JUN 2021 16:56
 entering extended mode
 **/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
 (/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
@@ -252,27 +252,42 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \titlewidth=\dimen172
 \titlewidthlast=\dimen173
 \titlewidthfirst=\dimen174
+) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen175
+\captionmargin@=\dimen176
+\captionwidth=\dimen177
+\caption@tempdima=\dimen178
+\caption@indent=\dimen179
+\caption@parindent=\dimen180
+\caption@hangindent=\dimen181
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count298
+\c@continuedfloat=\count299
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-02 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count298
+\l__color_backend_stack_int=\count300
 \l__pdf_internal_box=\box98
 ) (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -310,16 +325,16 @@ LaTeX Font Info:    ... okay on input line 44.
 
 (/home/hohaicongthuan/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count299
-\scratchdimen=\dimen175
+\scratchcounter=\count301
+\scratchdimen=\dimen182
 \scratchbox=\box99
-\nofMPsegments=\count300
-\nofMParguments=\count301
+\nofMPsegments=\count302
+\nofMParguments=\count303
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count302
-\MPscratchDim=\dimen176
-\MPnumerator=\count303
-\makeMPintoPDFobject=\count304
+\MPscratchCnt=\count304
+\MPscratchDim=\dimen183
+\MPnumerator=\count305
+\makeMPintoPDFobject=\count306
 \everyMPtoPDFconversion=\toks26
 ) (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -327,45 +342,101 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/home/hohaicongthuan/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 []|\OT1/cmr/m/n/10 Non-linear substitution ta-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--102
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
 []|\OT1/cmr/m/n/10 Number of columns (32-bit words)
  []
 
 <../Diagrams//S-Box.png, id=1, 758.835pt x 391.4625pt>
 File: ../Diagrams//S-Box.png Graphic file (type png)
 <use ../Diagrams//S-Box.png>
-Package pdftex.def Info: ../Diagrams//S-Box.png  used on input line 143.
+Package pdftex.def Info: ../Diagrams//S-Box.png  used on input line 147.
 (pdftex.def)             Requested size: 405.45178pt x 209.16455pt.
 [1
 
 {/home/hohaicongthuan/.miktex/texmfs/data/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 6477) in paragraph at lines 172--173
+Underfull \hbox (badness 6477) in paragraph at lines 176--177
 []\OT1/cmr/m/n/10 Bytes Substitution trans-form-ation is denoted by
  []
 
 <../Diagrams/KeyExpansion//KeyExpansion.png, id=18, 3856.4075pt x 2591.6825pt>
 File: ../Diagrams/KeyExpansion//KeyExpansion.png Graphic file (type png)
 <use ../Diagrams/KeyExpansion//KeyExpansion.png>
-Package pdftex.def Info: ../Diagrams/KeyExpansion//KeyExpansion.png  used on input line 226.
+Package pdftex.def Info: ../Diagrams/KeyExpansion//KeyExpansion.png  used on input line 231.
 (pdftex.def)             Requested size: 540.60239pt x 363.30763pt.
-[2 <../Diagrams//S-Box.png>] [3 <../Diagrams/KeyExpansion//KeyExpansion.png>] [4] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
+[2 <../Diagrams//S-Box.png>]
+<../Diagrams/KeyExpansion//Mod9Eq0.png, id=25, 924.45375pt x 254.9525pt>
+File: ../Diagrams/KeyExpansion//Mod9Eq0.png Graphic file (type png)
+<use ../Diagrams/KeyExpansion//Mod9Eq0.png>
+Package pdftex.def Info: ../Diagrams/KeyExpansion//Mod9Eq0.png  used on input line 254.
+(pdftex.def)             Requested size: 260.3012pt x 71.7869pt.
+<../Diagrams/KeyExpansion//Mod9Eq4.png, id=26, 924.45375pt x 254.9525pt>
+File: ../Diagrams/KeyExpansion//Mod9Eq4.png Graphic file (type png)
+<use ../Diagrams/KeyExpansion//Mod9Eq4.png>
+Package pdftex.def Info: ../Diagrams/KeyExpansion//Mod9Eq4.png  used on input line 262.
+(pdftex.def)             Requested size: 260.3012pt x 71.7869pt.
+ [3 <../Diagrams/KeyExpansion//KeyExpansion.png> <../Diagrams/KeyExpansion//Mod9Eq0.png> <../Diagrams/KeyExpansion//Mod9Eq4.png>]
+<../Diagrams//SubBytes.png, id=33, 3164.82375pt x 1400.23125pt>
+File: ../Diagrams//SubBytes.png Graphic file (type png)
+<use ../Diagrams//SubBytes.png>
+Package pdftex.def Info: ../Diagrams//SubBytes.png  used on input line 274.
+(pdftex.def)             Requested size: 260.3012pt x 115.16156pt.
+<../Diagrams//ShiftRows.png, id=34, 3360.555pt x 1436.36626pt>
+File: ../Diagrams//ShiftRows.png Graphic file (type png)
+<use ../Diagrams//ShiftRows.png>
+Package pdftex.def Info: ../Diagrams//ShiftRows.png  used on input line 288.
+(pdftex.def)             Requested size: 260.3012pt x 111.25148pt.
+<../Diagrams//MixColumns.png, id=35, 3947.74875pt x 4263.93pt>
+File: ../Diagrams//MixColumns.png Graphic file (type png)
+<use ../Diagrams//MixColumns.png>
+Package pdftex.def Info: ../Diagrams//MixColumns.png  used on input line 304.
+(pdftex.def)             Requested size: 260.3012pt x 281.13397pt.
+<../Diagrams//First_Row_Mul.png, id=36, 884.30376pt x 323.2075pt>
+File: ../Diagrams//First_Row_Mul.png Graphic file (type png)
+<use ../Diagrams//First_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams//First_Row_Mul.png  used on input line 314.
+(pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
+<../Diagrams//Second_Row_Mul.png, id=37, 884.30376pt x 323.2075pt>
+File: ../Diagrams//Second_Row_Mul.png Graphic file (type png)
+<use ../Diagrams//Second_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams//Second_Row_Mul.png  used on input line 322.
+(pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
+<../Diagrams//Third_Row_Mul.png, id=38, 884.30376pt x 323.2075pt>
+File: ../Diagrams//Third_Row_Mul.png Graphic file (type png)
+<use ../Diagrams//Third_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams//Third_Row_Mul.png  used on input line 330.
+(pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
+<../Diagrams//Fourth_Row_Mul.png, id=39, 884.30376pt x 323.2075pt>
+File: ../Diagrams//Fourth_Row_Mul.png Graphic file (type png)
+<use ../Diagrams//Fourth_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams//Fourth_Row_Mul.png  used on input line 338.
+(pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
+ [4 <../Diagrams//SubBytes.png> <../Diagrams//ShiftRows.png> <../Diagrams//MixColumns.png> <../Diagrams//First_Row_Mul.png> <../Diagrams//Second_Row_Mul.png> <../Diagrams//Third_Row_Mul.png>]
+<../Diagrams//gmul_2.png, id=49, 1688.3075pt x 610.28pt>
+File: ../Diagrams//gmul_2.png Graphic file (type png)
+<use ../Diagrams//gmul_2.png>
+Package pdftex.def Info: ../Diagrams//gmul_2.png  used on input line 346.
+(pdftex.def)             Requested size: 260.3012pt x 94.08955pt.
+ [5 <../Diagrams//Fourth_Row_Mul.png> <../Diagrams//gmul_2.png>] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
 Here is how much of TeX's memory you used:
- 3950 strings out of 481257
- 57459 string characters out of 2907664
- 400352 words of memory out of 3000000
- 21105 multiletter control sequences out of 15000+200000
+ 5263 strings out of 481257
+ 83523 string characters out of 2907664
+ 422467 words of memory out of 3000000
+ 22402 multiletter control sequences out of 15000+200000
  409518 words of font info for 48 fonts, out of 3000000 for 9000
  18 hyphenation exceptions out of 8191
- 68i,10n,74p,643b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,10n,74p,699b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
 </home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (4 pages, 475176 bytes).
+Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (5 pages, 1173395 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 95 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
