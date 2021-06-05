@@ -21,7 +21,7 @@
 
 \setcounter{secnumdepth}{4}
 
-\graphicspath{ {../Diagrams/} {../Diagrams/KeyExpansion/} }
+\graphicspath{ {../Diagrams/} {../Diagrams/KeyExpansion/} {../Diagrams/MixColumns/} {../Diagrams/ShiftRows/} {../Diagrams/SubBytes/} {../Diagrams/temporary/} }
 
 \hyphenation{
     trans-form-ation 
@@ -203,6 +203,7 @@
             after \textit{ShiftRows} transformation.
 
             \subsection{Mix Columns}
+            \label{sec:mixcolumns}
 
             \textit{MixColumns} transformation operates column-by-column on the \textit{State}. Each column is multiplied with a fixed matrix which results in a new column with new values.
 
@@ -215,6 +216,7 @@
                 01 & 01 & 02 & 03\\
                 03 & 01 & 01 & 02
             \end{bmatrix}
+            \label{equ:mixcolumns-matrix}
         \end{equation}
 
             \subsection{Add Round Keys}
@@ -246,7 +248,7 @@
             
             In the next eight clock cycles each of the word will be saved into the \textit{Register File} sequentially from the address 1 to 8. After that, to generate the $i^{th}$ word, $(i-1)^{th}$ and $(i-Nk)^{th}$ words are required, which can be accessed through Register File's Out\_A \& Out\_B ports respectively, with the addresses are selected by $i-1$ \& $i-8$ blocks in the circuit.
             
-            Depend on which word is generating, \textit{RotWord}, \textit{SubWord} can all be performed or just \textit{SubWord} is performed or neither of those. This is controlled by signals from \textit{mod 9 = 4} \& \textit{mod 9 = 0} blocks. Basically, the \textit{mod 9 = 4} block checks if a input number dividing by 9 has 4 as the remainder. If it is, the output will be pulled high and pulled low if it is not. Same thing with the \textit{mod 9 = 0} block but with 0 as the remainder. The design of \textit{mod 9 = 0} \& \textit{mod 9 = 4} are shown in figure \ref{fig:mod9eq0} \& figure \ref{fig:mod9eq4}, respectively.
+            Depend on which word is generating, \textit{RotWord}, \textit{SubWord} can all be performed or just \textit{SubWord} is performed or neither of those. This is controlled by signals from \textit{mod 9 = 4} \& \textit{mod 9 = 0} blocks. Basically, the \textit{mod 9 = 4} block checks if a input number dividing by 9 has 4 as the remainder. If it is, the output will be pulled high and pulled low if it is not. Same thing with the \textit{mod 9 = 0} block but with 0 as the remainder. The design of \textit{mod 9 = 0} \& \textit{mod 9 = 4} are shown in figure \ref{fig:mod9eq0} and figure \ref{fig:mod9eq4}, respectively.
             
             \noindent
             \begin{Figure}
@@ -264,7 +266,7 @@
                 \label{fig:mod9eq4}
             \end{Figure}
 
-            All the words will have been generated after sixty-one clock cycles. The counter will shut it self and the \textit{ready} signal is set indicating all round keys have been generated. After done generating and the \textit{ready} signal is set, round keys can be accessed by inputting the appropriate address through \textit{Key Address} input, which have the value range from 0 to 14.
+            All the words will have been generated after sixty-one clock cycles. The counter will shut itself and the \textit{ready} signal is set indicating all round keys have been generated. After done generating and the \textit{ready} signal is set, round keys can be accessed by inputting the appropriate address through \textit{Key Address} input, which have the value range from 0 to 14.
 
             \subsection{Bytes Substitution}
 
@@ -298,6 +300,8 @@
 
             \subsection{Mix Columns}
 
+            In figure \ref{fig:mixcolumns} is the circuit design for \textit{MixColumns} transformation. The 128-bit data input fed into the circuit is divided into four words. Each word is fed into \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks, which is basically multiplying that word using the multiplication in \textit{GF($2^{8}$)} with first, second, third, and fourth rows of the matrix (\ref{equ:mixcolumns-matrix}) from section \ref{sec:mixcolumns}. Each of the four blocks will output a new byte after the multiplication. Four bytes will be combined into a word. And the 128-bit output is formed by combining four words.
+
             \noindent
             \begin{Figure}
                 \centering
@@ -306,14 +310,14 @@
                 \label{fig:mixcolumns}
             \end{Figure}
 
-            Text here.
+            The implementation of the \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks is shown in figure \ref{fig:first-row-mul}, \ref{fig:second-row-mul}, \ref{fig:third-row-mul}, and \ref{fig:fourth-row-mul}, respectively. Note that all the addition operations (the plus symbol) in these circuits are all \textit{XOR} operations.
 
             \noindent
             \begin{Figure}
                 \centering
                 \includegraphics[width=\linewidth]{First_Row_Mul.png}
-                \captionof{figure}{First\_Col\_Mul.}
-                \label{fig:first-col-mul}
+                \captionof{figure}{First\_Row\_Mul.}
+                \label{fig:first-row-mul}
             \end{Figure}
 
             \noindent
@@ -339,6 +343,8 @@
                 \captionof{figure}{Fourth\_Row\_Mul.}
                 \label{fig:fourth-row-mul}
             \end{Figure}
+
+            The implementation of the multiplication by 2 in \textit{GF($2^{8}$)}, which is denoted as \textit{gmul\_2}, is shown in figure \ref{fig:gmul-2}. This multiplication operation is performed at the byte level as left shift operation followed by a conditional \textit{XOR} operation with the number \textit{1B} in hexadecimal.
 
             \noindent
             \begin{Figure}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  4 JUN 2021 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.27)  5 JUN 2021 20:35
 entering extended mode
 **/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
 (/home/hohaicongthuan/GitHub/Project-1/Docs/main.tex
@@ -354,10 +354,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--106
 []|\OT1/cmr/m/n/10 Number of columns (32-bit words)
  []
 
-<../Diagrams//S-Box.png, id=1, 758.835pt x 391.4625pt>
-File: ../Diagrams//S-Box.png Graphic file (type png)
-<use ../Diagrams//S-Box.png>
-Package pdftex.def Info: ../Diagrams//S-Box.png  used on input line 147.
+<../Diagrams/temporary//S-Box.png, id=1, 758.835pt x 391.4625pt>
+File: ../Diagrams/temporary//S-Box.png Graphic file (type png)
+<use ../Diagrams/temporary//S-Box.png>
+Package pdftex.def Info: ../Diagrams/temporary//S-Box.png  used on input line 147.
 (pdftex.def)             Requested size: 405.45178pt x 209.16455pt.
 [1
 
@@ -369,72 +369,77 @@ Underfull \hbox (badness 6477) in paragraph at lines 176--177
 <../Diagrams/KeyExpansion//KeyExpansion.png, id=18, 3856.4075pt x 2591.6825pt>
 File: ../Diagrams/KeyExpansion//KeyExpansion.png Graphic file (type png)
 <use ../Diagrams/KeyExpansion//KeyExpansion.png>
-Package pdftex.def Info: ../Diagrams/KeyExpansion//KeyExpansion.png  used on input line 231.
+Package pdftex.def Info: ../Diagrams/KeyExpansion//KeyExpansion.png  used on input line 233.
 (pdftex.def)             Requested size: 540.60239pt x 363.30763pt.
-[2 <../Diagrams//S-Box.png>]
+[2 <../Diagrams/temporary//S-Box.png>]
 <../Diagrams/KeyExpansion//Mod9Eq0.png, id=25, 924.45375pt x 254.9525pt>
 File: ../Diagrams/KeyExpansion//Mod9Eq0.png Graphic file (type png)
 <use ../Diagrams/KeyExpansion//Mod9Eq0.png>
-Package pdftex.def Info: ../Diagrams/KeyExpansion//Mod9Eq0.png  used on input line 254.
+Package pdftex.def Info: ../Diagrams/KeyExpansion//Mod9Eq0.png  used on input line 256.
 (pdftex.def)             Requested size: 260.3012pt x 71.7869pt.
 <../Diagrams/KeyExpansion//Mod9Eq4.png, id=26, 924.45375pt x 254.9525pt>
 File: ../Diagrams/KeyExpansion//Mod9Eq4.png Graphic file (type png)
 <use ../Diagrams/KeyExpansion//Mod9Eq4.png>
-Package pdftex.def Info: ../Diagrams/KeyExpansion//Mod9Eq4.png  used on input line 262.
+Package pdftex.def Info: ../Diagrams/KeyExpansion//Mod9Eq4.png  used on input line 264.
 (pdftex.def)             Requested size: 260.3012pt x 71.7869pt.
  [3 <../Diagrams/KeyExpansion//KeyExpansion.png> <../Diagrams/KeyExpansion//Mod9Eq0.png> <../Diagrams/KeyExpansion//Mod9Eq4.png>]
-<../Diagrams//SubBytes.png, id=33, 3164.82375pt x 1400.23125pt>
-File: ../Diagrams//SubBytes.png Graphic file (type png)
-<use ../Diagrams//SubBytes.png>
-Package pdftex.def Info: ../Diagrams//SubBytes.png  used on input line 274.
+<../Diagrams/SubBytes//SubBytes.png, id=33, 3164.82375pt x 1400.23125pt>
+File: ../Diagrams/SubBytes//SubBytes.png Graphic file (type png)
+<use ../Diagrams/SubBytes//SubBytes.png>
+Package pdftex.def Info: ../Diagrams/SubBytes//SubBytes.png  used on input line 276.
 (pdftex.def)             Requested size: 260.3012pt x 115.16156pt.
-<../Diagrams//ShiftRows.png, id=34, 3360.555pt x 1436.36626pt>
-File: ../Diagrams//ShiftRows.png Graphic file (type png)
-<use ../Diagrams//ShiftRows.png>
-Package pdftex.def Info: ../Diagrams//ShiftRows.png  used on input line 288.
+<../Diagrams/ShiftRows//ShiftRows.png, id=34, 3360.555pt x 1436.36626pt>
+File: ../Diagrams/ShiftRows//ShiftRows.png Graphic file (type png)
+<use ../Diagrams/ShiftRows//ShiftRows.png>
+Package pdftex.def Info: ../Diagrams/ShiftRows//ShiftRows.png  used on input line 290.
 (pdftex.def)             Requested size: 260.3012pt x 111.25148pt.
-<../Diagrams//MixColumns.png, id=35, 3947.74875pt x 4263.93pt>
-File: ../Diagrams//MixColumns.png Graphic file (type png)
-<use ../Diagrams//MixColumns.png>
-Package pdftex.def Info: ../Diagrams//MixColumns.png  used on input line 304.
+<../Diagrams/MixColumns//MixColumns.png, id=35, 3947.74875pt x 4263.93pt>
+File: ../Diagrams/MixColumns//MixColumns.png Graphic file (type png)
+<use ../Diagrams/MixColumns//MixColumns.png>
+Package pdftex.def Info: ../Diagrams/MixColumns//MixColumns.png  used on input line 308.
 (pdftex.def)             Requested size: 260.3012pt x 281.13397pt.
-<../Diagrams//First_Row_Mul.png, id=36, 884.30376pt x 323.2075pt>
-File: ../Diagrams//First_Row_Mul.png Graphic file (type png)
-<use ../Diagrams//First_Row_Mul.png>
-Package pdftex.def Info: ../Diagrams//First_Row_Mul.png  used on input line 314.
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+[]\OT1/cmr/m/n/10 The implementation of the \OT1/cmr/m/it/10 First[]Row[]Mul\OT1/cmr/m/n/10 ,
+ []
+
+<../Diagrams/MixColumns//First_Row_Mul.png, id=36, 884.30376pt x 323.2075pt>
+File: ../Diagrams/MixColumns//First_Row_Mul.png Graphic file (type png)
+<use ../Diagrams/MixColumns//First_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams/MixColumns//First_Row_Mul.png  used on input line 318.
 (pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
-<../Diagrams//Second_Row_Mul.png, id=37, 884.30376pt x 323.2075pt>
-File: ../Diagrams//Second_Row_Mul.png Graphic file (type png)
-<use ../Diagrams//Second_Row_Mul.png>
-Package pdftex.def Info: ../Diagrams//Second_Row_Mul.png  used on input line 322.
+<../Diagrams/MixColumns//Second_Row_Mul.png, id=37, 884.30376pt x 323.2075pt>
+File: ../Diagrams/MixColumns//Second_Row_Mul.png Graphic file (type png)
+<use ../Diagrams/MixColumns//Second_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams/MixColumns//Second_Row_Mul.png  used on input line 326.
 (pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
-<../Diagrams//Third_Row_Mul.png, id=38, 884.30376pt x 323.2075pt>
-File: ../Diagrams//Third_Row_Mul.png Graphic file (type png)
-<use ../Diagrams//Third_Row_Mul.png>
-Package pdftex.def Info: ../Diagrams//Third_Row_Mul.png  used on input line 330.
+<../Diagrams/MixColumns//Third_Row_Mul.png, id=38, 884.30376pt x 323.2075pt>
+File: ../Diagrams/MixColumns//Third_Row_Mul.png Graphic file (type png)
+<use ../Diagrams/MixColumns//Third_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams/MixColumns//Third_Row_Mul.png  used on input line 334.
 (pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
-<../Diagrams//Fourth_Row_Mul.png, id=39, 884.30376pt x 323.2075pt>
-File: ../Diagrams//Fourth_Row_Mul.png Graphic file (type png)
-<use ../Diagrams//Fourth_Row_Mul.png>
-Package pdftex.def Info: ../Diagrams//Fourth_Row_Mul.png  used on input line 338.
+[4 <../Diagrams/SubBytes//SubBytes.png> <../Diagrams/ShiftRows//ShiftRows.png> <../Diagrams/MixColumns//MixColumns.png> <../Diagrams/MixColumns//First_Row_Mul.png> <../Diagrams/MixColumns//Second_Row_Mul.png>]
+<../Diagrams/MixColumns//Fourth_Row_Mul.png, id=47, 884.30376pt x 323.2075pt>
+File: ../Diagrams/MixColumns//Fourth_Row_Mul.png Graphic file (type png)
+<use ../Diagrams/MixColumns//Fourth_Row_Mul.png>
+Package pdftex.def Info: ../Diagrams/MixColumns//Fourth_Row_Mul.png  used on input line 342.
 (pdftex.def)             Requested size: 260.3012pt x 95.13824pt.
- [4 <../Diagrams//SubBytes.png> <../Diagrams//ShiftRows.png> <../Diagrams//MixColumns.png> <../Diagrams//First_Row_Mul.png> <../Diagrams//Second_Row_Mul.png> <../Diagrams//Third_Row_Mul.png>]
-<../Diagrams//gmul_2.png, id=49, 1688.3075pt x 610.28pt>
-File: ../Diagrams//gmul_2.png Graphic file (type png)
-<use ../Diagrams//gmul_2.png>
-Package pdftex.def Info: ../Diagrams//gmul_2.png  used on input line 346.
+<../Diagrams/MixColumns//gmul_2.png, id=48, 1688.3075pt x 610.28pt>
+File: ../Diagrams/MixColumns//gmul_2.png Graphic file (type png)
+<use ../Diagrams/MixColumns//gmul_2.png>
+Package pdftex.def Info: ../Diagrams/MixColumns//gmul_2.png  used on input line 352.
 (pdftex.def)             Requested size: 260.3012pt x 94.08955pt.
- [5 <../Diagrams//Fourth_Row_Mul.png> <../Diagrams//gmul_2.png>] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
+ [5 <../Diagrams/MixColumns//Third_Row_Mul.png> <../Diagrams/MixColumns//Fourth_Row_Mul.png> <../Diagrams/MixColumns//gmul_2.png>] (/home/hohaicongthuan/GitHub/Project-1/Docs/main.aux) ) 
 Here is how much of TeX's memory you used:
- 5263 strings out of 481257
- 83523 string characters out of 2907664
- 422467 words of memory out of 3000000
- 22402 multiletter control sequences out of 15000+200000
+ 5268 strings out of 481257
+ 84116 string characters out of 2907664
+ 422585 words of memory out of 3000000
+ 22404 multiletter control sequences out of 15000+200000
  409518 words of font info for 48 fonts, out of 3000000 for 9000
  18 hyphenation exceptions out of 8191
- 68i,10n,74p,699b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,10n,74p,777b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
 </home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/hohaicongthuan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (5 pages, 1173395 bytes).
+Output written on /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf (5 pages, 1175972 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
