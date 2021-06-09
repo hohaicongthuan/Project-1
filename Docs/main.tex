@@ -160,7 +160,7 @@
                         \end{equation}
                 % \endgroup
 
-            \subsubsection{Algorithm}
+            % \subsubsection{Algorithm}
                 In AES-256, the first two round keys (first 8 words) are filled with the cipher key. For the rest, $w[i]$ word is generated using $w[i-1]$ word.
 
                 Loop through the following steps until we have generated $Nb(Nr+1)$ words.
@@ -219,6 +219,8 @@
             \label{equ:mixcolumns-matrix}
         \end{equation}
 
+            The multiplication operation performed in this \textit{MixColumns} transformation is not ordinary integer multiplication but multiplication in \textit{GF($2^{8}$)}, which can be performed at byte level as left shift operation followed by the conditional \textit{XOR} operation with the number \textbf{1B} in hexadecimal.
+
             \subsection{Add Round Keys}
 
             Round Keys generated from \textit{Key Expansion} rountine will be used in this transformation. Round Key is added to the \textit{State} by a bitwise XOR operation with the corresponding bytes.
@@ -267,8 +269,10 @@
             \end{Figure}
 
             All the words will have been generated after sixty-one clock cycles. The counter will shut itself and the \textit{ready} signal is set indicating all round keys have been generated. After done generating and the \textit{ready} signal is set, round keys can be accessed by inputting the appropriate address through \textit{Key Address} input, which have the value range from 0 to 14.
+            
+            \subsection{AES-256 Encryption}
 
-            \subsection{Bytes Substitution}
+            \subsubsection{Bytes Substitution}
 
             \noindent
             \begin{Figure}
@@ -282,7 +286,7 @@
 
             This ciruit takes 128-bit data and splits into words and then into individual bytes. Each byte will be fed into \textit{SBox} and the corresponding byte will be outputted. The outputted bytes will then be combined into words and eventually into 128-bit output data.
 
-            \subsection{Shift Rows}
+            \subsubsection{Shift Rows}
 
             \noindent
             \begin{Figure}
@@ -298,7 +302,7 @@
 
             Finally, all the rows will be split and combined into correct columns and rows format of the \textit{State}.
 
-            \subsection{Mix Columns}
+            \subsubsection{Mix Columns}
 
             In figure \ref{fig:mixcolumns} is the circuit design for \textit{MixColumns} transformation. The 128-bit data input fed into the circuit is divided into four words. Each word is fed into \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks, which is basically multiplying that word using the multiplication in \textit{GF($2^{8}$)} with first, second, third, and fourth rows of the matrix (\ref{equ:mixcolumns-matrix}) from section \ref{sec:mixcolumns}. Each of the four blocks will output a new byte after the multiplication. Four bytes will be combined into a word. And the 128-bit output is formed by combining four words.
 
@@ -344,7 +348,7 @@
                 \label{fig:fourth-row-mul}
             \end{Figure}
 
-            The implementation of the multiplication by 2 in \textit{GF($2^{8}$)}, which is denoted as \textit{gmul\_2}, is shown in figure \ref{fig:gmul-2}. This multiplication operation is performed at the byte level as left shift operation followed by a conditional \textit{XOR} operation with the number \textit{1B} in hexadecimal.
+            The implementation of the multiplication by 2 in \textit{GF($2^{8}$)}, which is denoted as \textit{gmul\_2}, is shown in figure \ref{fig:gmul-2}. This multiplication operation is performed at byte level as shift operation one bit to the left followed by a conditional \textit{XOR} operation with the number \textit{1B} in hexadecimal.
 
             \noindent
             \begin{Figure}
@@ -354,13 +358,46 @@
                 \label{fig:gmul-2}
             \end{Figure}
 
-            \subsection{Add Round Keys}
+            \subsection{AES-256 Decryption}
+
+            \subsubsection{Inverse Byte Substitution}
+        
+            Text here.
+
+            \subsubsection{Inverse Shift Rows}
 
             Text here.
 
+            \subsubsection{Inverse Mix Columns}
+
+            Text here.
+
+            \subsection{Add Round Keys}
+
+            \textit{AddRoundKeys} can simply be performed by the \textit{XOR} operation with the \textit{State} and a round key, which both have the length of 128 bits. The output is 128-bit.
+
         \section{RESULTS}
 
-        (N/A)
+        \subsection{Key Expansion}
+
+        Figure \ref{fig:keyexpansion-sim} shows simulation waveform result using \textit{ModelSim}. As can be seen in the figure, after 61 clock cycles since the last \textit{reset} signal, the textit{ready} signal is set indicating round keys have been generated. Therefore, they can be retrieved correctly, which is the part circled in the figure.
+
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{KeyExpansion-GetRoundKeysStage-edited.png}
+                \captionof{figure}{Key Expansion simulation result in \textit{ModelSim}.}
+                \label{fig:keyexpansion-sim}
+            \end{Figure}
+
+        The circuit is tested with different keys from the example section in \cite{AES} and the web-based tool \textit{https://www.cryptool.org/en/cto/aes-step-by-step}. The results produced by the circuit are the same with the expected results in each test case.
+
+        \subsection{AES-256 Encryption}
+
+        Text here.
+
+        \subsection{AES-256 Decryption}
+
+        Text here.
 
         \section{CONCLUSION}
 
