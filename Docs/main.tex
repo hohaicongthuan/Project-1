@@ -1,7 +1,7 @@
 \documentclass[a4paper, 10pt]{article}
 
 % Use packages here
-\usepackage[a4paper, left=1cm, right=1cm, top=1.5cm, bottom=2cm]{geometry}
+\usepackage[a4paper, left=1cm, right=1cm, top=1cm, bottom=2cm]{geometry}
 \usepackage{blindtext} % This package is used for testing
 \usepackage[british]{babel} % This package is used for localisation
 \usepackage{paralist} % This package creates compact lists
@@ -136,28 +136,15 @@
                             \hline
                             \textbf{\textit{Rcon}} & The round constants, which is given in the form $[rc_{i},00_{16},00_{16},00_{16}]$ with $i$ starts from 1. $rc_{i}$ is defined as in (1)\\
                         \end{tabular}
-                    \end{multicols}
 
-                    %%%%%%%%%%%%%%%%
-                    % S-BOX FIGURE %
-                    %%%%%%%%%%%%%%%%
-                    \noindent
-                    \begin{figure}[t]
-                        \centering
-                        \includegraphics[width=.75\textwidth]{S-Box.png}
-                        \caption{Substitution Box (S-Box) used in SubBytes transformation.}
-                        \label{fig:SBox}
-                    \end{figure}
-
-                    \begin{multicols}{2}
-                        \begin{equation}
-                            rc_{i}=
-                            \begin{cases}
-                                1 & \text{if } i=1\\
-                                2 \cdot  rc_{i-1} & \text{if } i>1 \text{ and } rc_{i-1}<80_{16}\\
-                                \left(2 \cdot  rc_{i-1}\right)\oplus 11\text{B}_{16} & \text{if } i>1 \text{ and } rc_{i-1} \ge 80_{16}
-                            \end{cases}
-                        \end{equation}
+                \begin{equation}
+                    rc_{i}=
+                    \begin{cases}
+                        1 & \text{if } i=1\\
+                        2 \cdot  rc_{i-1} & \text{if } i>1 \text{ and } rc_{i-1}<80_{16}\\
+                        \left(2 \cdot  rc_{i-1}\right)\oplus 11\text{B}_{16} & \text{if } i>1 \text{ and } rc_{i-1} \ge 80_{16}
+                    \end{cases}
+                \end{equation}
                 % \endgroup
 
             % \subsubsection{Algorithm}
@@ -171,18 +158,29 @@
 
                 After finishing the algorithm, a set of $Nb(Nr+1)$ words is generated. Round Keys are created by grouping four words each sequentially. At this point, we have one round key for the initial round and 14 round keys for 14 rounds during the encryption or decryption processes, with the total of 15 round keys.
 
-            \subsection{Bytes Substitution}
+            \subsection{AES-256 Encryption}
+
+            \subsubsection{Bytes Substitution}
 
             Bytes Substitution transformation is denoted by \textit{SubBytes} function. This independently replaces all the bytes in the \textit{State} with the corresponding bytes using a \textit{substituion box} (or \textit{S-Box}), which is shown in the figure \ref{fig:SBox}.
 
+            \noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{S-Box.png}
+                \captionof{figure}{Substitution Box (S-Box) used in \textit{SubBytes} transformation.}
+                \label{fig:SBox}
+            \end{Figure}
+
             The higher 4 bits determine the coordinate of the row and lower 4 bits determine the coordinate of the column. For example, the byte \textbf{5A}, we have $x=5$ \& $y=A$, these values point to the new value in the table, which is \textbf{BE}. So \textbf{5A} will be substituted by \textbf{BE}.
 
-            \subsection{Shift Rows}
+            \subsubsection{Shift Rows}
             \label{sec:shift-rows-intro}
 
             In the \textit{ShiftRows} transformation, the last three row of the \textit{State} will be rotated to the left with different byte offsets.
 
             The first row of the \textit{State} is unaffected. The second row will be rotated to the left by one byte, two bytes for the third row, and three bytes for the fourth row. Therefore,
+
             \begin{equation}
                 \begin{bmatrix}
                     a_{0} & a_{4} & a_{8} & a_{12}\\
@@ -190,8 +188,11 @@
                     a_{2} & a_{6} & a_{10} & a_{14}\\
                     a_{3} & a_{7} & a_{11} & a_{15}
                 \end{bmatrix}
+                \label{equ:shift-rows-example}
             \end{equation}
+
             will become
+
             \begin{equation}
                 \begin{bmatrix}
                     a_{0} & a_{4} & a_{8} & a_{12}\\
@@ -200,9 +201,10 @@
                     a_{15} & a_{3} & a_{7} & a_{11}
                 \end{bmatrix}
             \end{equation}
+
             after \textit{ShiftRows} transformation.
 
-            \subsection{Mix Columns}
+            \subsubsection{Mix Columns}
             \label{sec:mixcolumns}
 
             \textit{MixColumns} transformation operates column-by-column on the \textit{State}. Each column is multiplied with a fixed matrix which results in a new column with new values.
@@ -219,25 +221,61 @@
             \label{equ:mixcolumns-matrix}
         \end{equation}
 
-            The multiplication operation performed in this \textit{MixColumns} transformation is not ordinary integer multiplication but multiplication in \textit{GF($2^{8}$)}, which can be performed at byte level as left shift operation followed by the conditional \textit{XOR} operation with the number \textbf{1B} in hexadecimal.
+        The multiplication operation performed in this \textit{MixColumns} transformation is not ordinary integer multiplication but multiplication in \textit{GF($2^{8}$)}, which can be performed at byte level as left shift operation followed by the conditional \textit{XOR} operation with the number \textbf{1B} in hexadecimal.
+
+            \subsection{AES-256 Decryption}
+
+            \subsubsection{Inverse Bytes Substitution}
+
+            In the \textit{Inverse Bytes Substitution} transformation, which is denoted as \textit{InvSubBytes}, all bytes from the \textit{State} will be replaced by the corresponding bytes from the inverse S-Box, which is shown in figure \ref{fig:inv-s-box}.
+
+            \noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{Inv S-box.png}
+                \captionof{figure}{Inverse S-Box}
+                \label{fig:inv-s-box}
+            \end{Figure}
+
+            \subsubsection{Inverse Shift Rows}
+
+            \textit{Inverse Shift Rows} denoted as \textit{InvShiftRows} is the inverse of \textit{ShiftRows} transformation. Each row from the \textit{State} is rotated with different offsets to the right instead of left. According to that, the first row is untouched, the second row is rotated one byte to the right, rotated two bytes to the right for the third row, and three bytes for the fourth row. Suppose (\ref{equ:shift-rows-example}) as the example input, after \textit{InvShiftRows} transformation, the input will become
+
+            \noindent
+            \begin{figure*}[t]
+                \centering
+                \includegraphics[width=\linewidth]{KeyExpansion.png}
+                \captionof{figure}{Diagram of Key Expansion.}
+                \label{fig:KeyExpansion}
+            \end{figure*}
+
+            \begin{equation}
+                \begin{bmatrix}
+                    a_{0} & a_{4} & a_{8} & a_{12}\\
+                    a_{13} & a_{1} & a_{5} & a_{9}\\
+                    a_{10} & a_{14} & a_{2} & a_{6}\\
+                    a_{7} & a_{11} & a_{15} & a_{3}
+                \end{bmatrix}
+            \end{equation}
+
+            \subsubsection{Inverse Mix Columns}
+
+            \textit{Inverse Mix Columns} denoted as \textit{InvMixColumns} is the inverse of \textit{MixColumns} transformation. Each column from the \textit{State} is multiplied with the inverse matrix of the matrix (\ref{equ:mixcolumns-matrix}), which is shown in figure \ref{equ:inv-mixcolumns-matrix}, using the multiplication in \textit{$GF(2^{8})$}. Note that all numbers in the matrix are written in hexadecimal.
+
+            \begin{equation}
+                \begin{bmatrix}
+                    0e & 0b & 0d & 09\\
+                    09 & 0e & 0b & 0d\\
+                    0d & 09 & 0e & 0b\\
+                    0b & 0d & 09 & 0e
+                \end{bmatrix}
+                \label{equ:inv-mixcolumns-matrix}
+            \end{equation}
 
             \subsection{Add Round Keys}
 
             Round Keys generated from \textit{Key Expansion} rountine will be used in this transformation. Round Key is added to the \textit{State} by a bitwise XOR operation with the corresponding bytes.
-        \end{multicols}
-    
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        % KEY EXPANSION DIAGRAM FIGURE %
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \noindent
-        \begin{figure}[t]
-            \centering
-            \includegraphics[width=\textwidth]{KeyExpansion.png}
-            \caption{Diagram of Key Expansion.}
-            \label{fig:KeyExpansion}
-        \end{figure}
 
-        \begin{multicols}{2}
         \section{IMPLEMENTATION}
 
             \subsection{Key Expansion}
@@ -304,8 +342,6 @@
 
             \subsubsection{Mix Columns}
 
-            In figure \ref{fig:mixcolumns} is the circuit design for \textit{MixColumns} transformation. The 128-bit data input fed into the circuit is divided into four words. Each word is fed into \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks, which is basically multiplying that word using the multiplication in \textit{GF($2^{8}$)} with first, second, third, and fourth rows of the matrix (\ref{equ:mixcolumns-matrix}) from section \ref{sec:mixcolumns}. Each of the four blocks will output a new byte after the multiplication. Four bytes will be combined into a word. And the 128-bit output is formed by combining four words.
-
             \noindent
             \begin{Figure}
                 \centering
@@ -313,6 +349,8 @@
                 \captionof{figure}{MixColumns circuit diagram.}
                 \label{fig:mixcolumns}
             \end{Figure}
+
+            In figure \ref{fig:mixcolumns} is the circuit design for \textit{MixColumns} transformation. The 128-bit data input fed into the circuit is divided into four words. Each word is fed into \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks, which is basically multiplying that word using the multiplication in \textit{GF($2^{8}$)} with first, second, third, and fourth rows of the matrix (\ref{equ:mixcolumns-matrix}) from section \ref{sec:mixcolumns}. Each of the four blocks will output a new byte after the multiplication. Four bytes will be combined into a word. And the 128-bit output is formed by combining four words.
 
             The implementation of the \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks is shown in figure \ref{fig:first-row-mul}, \ref{fig:second-row-mul}, \ref{fig:third-row-mul}, and \ref{fig:fourth-row-mul}, respectively. Note that all the addition operations (the plus symbol) in these circuits are all \textit{XOR} operations.
 

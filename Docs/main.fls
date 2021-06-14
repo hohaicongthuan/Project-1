@@ -343,15 +343,22 @@ INPUT /home/hohaicongthuan/.miktex/texmfs/install/fonts/tfm/public/cm/cmti10.tfm
 INPUT /home/hohaicongthuan/.miktex/texmfs/install/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /home/hohaicongthuan/.miktex/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /home/hohaicongthuan/.miktex/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT ../Diagrams/temporary//S-Box.png
-INPUT ../Diagrams/temporary//S-Box.png
-INPUT ../Diagrams/temporary//S-Box.png
-INPUT ../Diagrams/temporary//S-Box.png
 OUTPUT /home/hohaicongthuan/GitHub/Project-1/Docs/main.pdf
-INPUT ../Diagrams/temporary//S-Box.png
-INPUT ../Diagrams/temporary//S-Box.png
-INPUT ../Diagrams/temporary//S-Box.png
 INPUT /home/hohaicongthuan/.miktex/texmfs/data/pdftex/config/pdftex.map
+INPUT ../Diagrams/temporary//S-Box.png
+INPUT ../Diagrams/temporary//S-Box.png
+INPUT ../Diagrams/temporary//S-Box.png
+INPUT ../Diagrams/temporary//S-Box.png
+INPUT ../Diagrams/temporary//S-Box.png
+INPUT ../Diagrams/temporary//S-Box.png
+INPUT ../Diagrams/temporary//S-Box.png
+INPUT ../Diagrams/temporary//Inv S-box.png
+INPUT ../Diagrams/temporary//Inv S-box.png
+INPUT ../Diagrams/temporary//Inv S-box.png
+INPUT ../Diagrams/temporary//Inv S-box.png
+INPUT ../Diagrams/temporary//Inv S-box.png
+INPUT ../Diagrams/temporary//Inv S-box.png
+INPUT ../Diagrams/temporary//Inv S-box.png
 INPUT ../Diagrams/KeyExpansion//KeyExpansion.png
 INPUT ../Diagrams/KeyExpansion//KeyExpansion.png
 INPUT ../Diagrams/KeyExpansion//KeyExpansion.png

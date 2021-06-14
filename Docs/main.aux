@@ -7,51 +7,58 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Abbreviations and Symbols used in AES-256}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}AES-256}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Key Expansion}{1}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Substitution Box (S-Box) used in SubBytes transformation.\relax }}{2}{}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}AES-256 Encryption}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Bytes Substitution}{2}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Substitution Box (S-Box) used in \textit  {SubBytes} transformation.\relax }}{2}{}\protected@file@percent }
 \newlabel{fig:SBox}{{1}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Bytes Substitution}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Shift Rows}{2}{}\protected@file@percent }
-\newlabel{sec:shift-rows-intro}{{2.3}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Mix Columns}{2}{}\protected@file@percent }
-\newlabel{sec:mixcolumns}{{2.4}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Shift Rows}{2}{}\protected@file@percent }
+\newlabel{sec:shift-rows-intro}{{2.2.2}{2}}
+\newlabel{equ:shift-rows-example}{{2}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Mix Columns}{2}{}\protected@file@percent }
+\newlabel{sec:mixcolumns}{{2.2.3}{2}}
 \newlabel{equ:mixcolumns-matrix}{{4}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Add Round Keys}{2}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Diagram of Key Expansion.\relax }}{3}{}\protected@file@percent }
-\newlabel{fig:KeyExpansion}{{2}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}AES-256 Decryption}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Inverse Bytes Substitution}{2}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Inverse S-Box\relax }}{2}{}\protected@file@percent }
+\newlabel{fig:inv-s-box}{{2}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Inverse Shift Rows}{2}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Diagram of Key Expansion.\relax }}{3}{}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:KeyExpansion}{{3}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Inverse Mix Columns}{3}{}\protected@file@percent }
+\newlabel{equ:inv-mixcolumns-matrix}{{6}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Add Round Keys}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}IMPLEMENTATION}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Key Expansion}{3}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Circuit of \textit  {mod 9 = 0} block\relax }}{3}{}\protected@file@percent }
-\newlabel{fig:mod9eq0}{{3}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Circuit of \textit  {mod 9 = 4} block\relax }}{4}{}\protected@file@percent }
-\newlabel{fig:mod9eq4}{{4}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Circuit of \textit  {mod 9 = 0} block\relax }}{4}{}\protected@file@percent }
+\newlabel{fig:mod9eq0}{{4}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Circuit of \textit  {mod 9 = 4} block\relax }}{4}{}\protected@file@percent }
+\newlabel{fig:mod9eq4}{{5}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}AES-256 Encryption}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Bytes Substitution}{4}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces SubBytes circuit diagram.\relax }}{4}{}\protected@file@percent }
-\newlabel{fig:subbytes}{{5}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces SubBytes circuit diagram.\relax }}{4}{}\protected@file@percent }
+\newlabel{fig:subbytes}{{6}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Shift Rows}{4}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces ShiftRows circuit diagram.\relax }}{4}{}\protected@file@percent }
-\newlabel{fig:shiftrows}{{6}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces ShiftRows circuit diagram.\relax }}{4}{}\protected@file@percent }
+\newlabel{fig:shiftrows}{{7}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Mix Columns}{4}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces MixColumns circuit diagram.\relax }}{4}{}\protected@file@percent }
-\newlabel{fig:mixcolumns}{{7}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces First\_Row\_Mul.\relax }}{4}{}\protected@file@percent }
-\newlabel{fig:first-row-mul}{{8}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces MixColumns circuit diagram.\relax }}{4}{}\protected@file@percent }
+\newlabel{fig:mixcolumns}{{8}{4}}
 \citation{AES}
 \bibcite{AES}{1}
 \bibcite{sam-key-expansion}{2}
 \bibcite{sam-mix-columns}{3}
 \bibcite{sam-galois-field}{4}
-\bibcite{sam-s-box}{5}
-\bibcite{understand_mixcol}{6}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Second\_Row\_Mul.\relax }}{5}{}\protected@file@percent }
-\newlabel{fig:second-row-mul}{{9}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Third\_Row\_Mul.\relax }}{5}{}\protected@file@percent }
-\newlabel{fig:third-row-mul}{{10}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Fourth\_Row\_Mul.\relax }}{5}{}\protected@file@percent }
-\newlabel{fig:fourth-row-mul}{{11}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces gmul\_2.\relax }}{5}{}\protected@file@percent }
-\newlabel{fig:gmul-2}{{12}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces First\_Row\_Mul.\relax }}{5}{}\protected@file@percent }
+\newlabel{fig:first-row-mul}{{9}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Second\_Row\_Mul.\relax }}{5}{}\protected@file@percent }
+\newlabel{fig:second-row-mul}{{10}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Third\_Row\_Mul.\relax }}{5}{}\protected@file@percent }
+\newlabel{fig:third-row-mul}{{11}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Fourth\_Row\_Mul.\relax }}{5}{}\protected@file@percent }
+\newlabel{fig:fourth-row-mul}{{12}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces gmul\_2.\relax }}{5}{}\protected@file@percent }
+\newlabel{fig:gmul-2}{{13}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}AES-256 Decryption}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Inverse Byte Substitution}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Inverse Shift Rows}{5}{}\protected@file@percent }
@@ -59,9 +66,11 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Add Round Keys}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}RESULTS}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Key Expansion}{5}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Key Expansion simulation result in \textit  {ModelSim}.\relax }}{5}{}\protected@file@percent }
-\newlabel{fig:keyexpansion-sim}{{13}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Key Expansion simulation result in \textit  {ModelSim}.\relax }}{5}{}\protected@file@percent }
+\newlabel{fig:keyexpansion-sim}{{14}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}AES-256 Encryption}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}AES-256 Decryption}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}CONCLUSION}{5}{}\protected@file@percent }
-\gdef \@abspage@last{5}
+\bibcite{sam-s-box}{5}
+\bibcite{understand_mixcol}{6}
+\gdef \@abspage@last{6}
