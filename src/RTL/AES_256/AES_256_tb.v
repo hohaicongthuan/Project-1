@@ -3,7 +3,7 @@
 module AES_256_tb();
     parameter   waittime  = 20;
     parameter   clocktime = 10;
-    integer     i, outfile, infile;
+    // integer     i, outfile, infile;
 
     reg [127:0] data_in;
     reg [255:0] cipher_key;
@@ -24,8 +24,8 @@ module AES_256_tb();
         En = 1'b0;
         #waittime;
         Rst = 1'b1;
-        data_in = 128'hffeeddccbbaa99887766554433221100;
-        cipher_key = 256'h1f1e1d1c1b1a191817161514131211100f0e0d0c0b0a09080706050403020100;
+        data_in = 128'h2a179373117e3de9969f402ee2bec16b;
+        cipher_key = 256'hf4df1409a310982dd708613b072c351f81777d85f0ae732bbe71ca1510eb3d60;
         En = 1'b1;
 
         while (!done) #waittime;

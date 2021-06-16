@@ -7,7 +7,7 @@ module AES_Encrypt_Counter(Clk, Rst, En, data_out);
             data_out <= 0;
         end else begin
             if (En) begin
-                if (data_out >= 14) begin
+                if (data_out >= 15) begin
                     data_out <= data_out;
                 end else begin
                     data_out <= data_out + 1;    
