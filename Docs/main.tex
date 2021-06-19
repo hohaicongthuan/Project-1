@@ -18,7 +18,7 @@
 
 % Preamble here
 \setlength\columnsep{20pt} % This is the default columnsep for all pages
-
+\raggedbottom
 \setcounter{secnumdepth}{4}
 
 \graphicspath{ {../Diagrams/} {../Diagrams/KeyExpansion/} {../Diagrams/MixColumns/} {../Diagrams/ShiftRows/} {../Diagrams/SubBytes/} {../Diagrams/temporary/} }
@@ -160,6 +160,8 @@
 
             \subsection{AES-256 Encryption}
 
+	The AES-256 Encryption process comprises of fourteen rounds plus the initial round. In the initial round, the input data will be added with the initial round key. In the next thirteen rounds, all the  \textit{SubBytes}, \textit{ShiftRows}, \textit{MixColumns}, and \textit{AddRoundKey} transformations will be performed on the \textit{State}, respectively. In the last round, only \textit{SubBytes}, \textit{ShiftRows}, and \textit{AddRoundKey} are performed.
+
             \subsubsection{Bytes Substitution}
 
             Bytes Substitution transformation is denoted by \textit{SubBytes} function. This independently replaces all the bytes in the \textit{State} with the corresponding bytes using a \textit{substituion box} (or \textit{S-Box}), which is shown in the figure \ref{fig:SBox}.
@@ -225,11 +227,11 @@
 
             \subsection{AES-256 Decryption}
 
+	The AES-256 Decryption process is the inverse of the AES-256 Encryption process. Basically, it is the same as the encryption process but in reverse. Round keys used in the decryption process are also in reverse order. However, the \textit{SubBytes}, \textit{ShiftRows}, and \textit{MixColumns} transformations are replaced with \textit{InvSubBytes}, \textit{InvShiftRows}, and \textit{InvMixColumns}, respectively. Details of those transformations are discussed in the following sub-sections.
+
             \subsubsection{Inverse Bytes Substitution}
 
-            In the \textit{Inverse Bytes Substitution} transformation, which is denoted as \textit{InvSubBytes}, all bytes from the \textit{State} will be replaced by the corresponding bytes from the inverse S-Box, which is shown in figure \ref{fig:inv-s-box}.
-
-            \noindent
+	\noindent
             \begin{Figure}
                 \centering
                 \includegraphics[width=\linewidth]{Inv S-box.png}
@@ -237,17 +239,19 @@
                 \label{fig:inv-s-box}
             \end{Figure}
 
-            \subsubsection{Inverse Shift Rows}
-
-            \textit{Inverse Shift Rows} denoted as \textit{InvShiftRows} is the inverse of \textit{ShiftRows} transformation. Each row from the \textit{State} is rotated with different offsets to the right instead of left. According to that, the first row is untouched, the second row is rotated one byte to the right, rotated two bytes to the right for the third row, and three bytes for the fourth row. Suppose (\ref{equ:shift-rows-example}) as the example input, after \textit{InvShiftRows} transformation, the input will become
-
-            \noindent
+	\noindent
             \begin{figure*}[t]
                 \centering
                 \includegraphics[width=\linewidth]{KeyExpansion.png}
                 \captionof{figure}{Diagram of Key Expansion.}
                 \label{fig:KeyExpansion}
             \end{figure*}
+
+            In the \textit{Inverse Bytes Substitution} transformation, which is denoted as \textit{InvSubBytes}, all bytes from the \textit{State} will be replaced by the corresponding bytes from the inverse S-Box, which is shown in figure \ref{fig:inv-s-box}.
+
+            \subsubsection{Inverse Shift Rows}
+
+            \textit{Inverse Shift Rows} denoted as \textit{InvShiftRows} is the inverse of \textit{ShiftRows} transformation. Each row from the \textit{State} is rotated with different offsets to the right instead of left. According to that, the first row is untouched, the second row is rotated one byte to the right, rotated two bytes to the right for the third row, and three bytes for the fourth row. Suppose (\ref{equ:shift-rows-example}) as the example input, after \textit{InvShiftRows} transformation, the input will become
 
             \begin{equation}
                 \begin{bmatrix}
@@ -274,7 +278,7 @@
 
             \subsection{Add Round Keys}
 
-            Round Keys generated from \textit{Key Expansion} rountine will be used in this transformation. Round Key is added to the \textit{State} by a bitwise XOR operation with the corresponding bytes.
+            Round keys generated from \textit{Key Expansion} rountine will be used in this transformation. It takes two 128-bit input data and output 128-bit data. Round keys are added to the \textit{State} by bitwise \textit{XOR} operations with the corresponding bytes. 
 
         \section{IMPLEMENTATION}
 
@@ -284,10 +288,18 @@
             
             This circuit will generate words that make up the Round Key one-by-one and store them in the \textit{Register File}. The \textit{Register File} has the total amount of 64 registers but only 60 of them are used because we only need to generate 60 words. The module \textit{Rcon} and \textit{SubWord} are implemented in the form of look-up tables (LUTs).
 
+	\noindent
+            \begin{figure*}[t]
+                \centering
+                \includegraphics[width=\linewidth]{AES_encrypt.png}
+                \captionof{figure}{Diagram of AES Encryption Circuit.}
+                \label{fig:AES_encrypt}
+            \end{figure*}
+
             In order for the circuit to work, the \textit{reset} signal must be pulled low (the \textit{reset} signal is active low) and then the \textit{enable} signal is pulled high. The cipher key can be passed through \textit{Input Data}. After reset, the counter's value will be set to zero and increased by 1 after each clock cycle. In the meantime, the inputted cipher key will be broken up into words, which are 32 bits each, and stored in eight registers from $w_{0}$ to $w_{7}$.
             
             In the next eight clock cycles each of the word will be saved into the \textit{Register File} sequentially from the address 1 to 8. After that, to generate the $i^{th}$ word, $(i-1)^{th}$ and $(i-Nk)^{th}$ words are required, which can be accessed through Register File's Out\_A \& Out\_B ports respectively, with the addresses are selected by $i-1$ \& $i-8$ blocks in the circuit.
-            
+
             Depend on which word is generating, \textit{RotWord}, \textit{SubWord} can all be performed or just \textit{SubWord} is performed or neither of those. This is controlled by signals from \textit{mod 9 = 4} \& \textit{mod 9 = 0} blocks. Basically, the \textit{mod 9 = 4} block checks if a input number dividing by 9 has 4 as the remainder. If it is, the output will be pulled high and pulled low if it is not. Same thing with the \textit{mod 9 = 0} block but with 0 as the remainder. The design of \textit{mod 9 = 0} \& \textit{mod 9 = 4} are shown in figure \ref{fig:mod9eq0} and figure \ref{fig:mod9eq4}, respectively.
             
             \noindent
@@ -310,6 +322,12 @@
             
             \subsection{AES-256 Encryption}
 
+	Figure \ref{fig:AES_encrypt} shows the design of AES Encryption circuit. This circuit takes 128-bit data in and a set of round keys to perform AES encrytion on the inputted data.
+
+	A reset signal must be inputted in order for the circuit to work properly. A counter will keep track of which round and round key the encryption process is currently at. In the first clock cycle, inputted data will be stored in a register and added with the first round key and saved in another register that acts as the \textit{State}, completing the initial round. In the next thirteen clock cycles, the circuit performs thirteen rounds comprising \textit{SubBytes}, \textit{ShiftRows}, \textit{MixColumns}, and \textit{AddRoundKey} transformations in each round on the \textit{State}. In the last round, the \textit{MixColumns} transformation is optted out. The encryption process will be completed after fifteen clock cycles and the \textit{done} signal will be pulled high.
+	
+	Details on smaller circuits in this AES Encryption circuit like \textit{SubBytes}, \textit{ShiftRows}, \textit{MixColumns}, etc. are represented in the following sub-sections.
+
             \subsubsection{Bytes Substitution}
 
             \noindent
@@ -326,7 +344,7 @@
 
             \subsubsection{Shift Rows}
 
-            \noindent
+	\noindent
             \begin{Figure}
                 \centering
                 \includegraphics[width=\linewidth]{ShiftRows.png}
@@ -334,7 +352,7 @@
                 \label{fig:shiftrows}
             \end{Figure}
 
-            The circuit diagram for \textit{ShiftRows} is shown in figure \ref{fig:shiftrows}. This circuit takes 128-bit data in, perform shifting and output 128-bit data.
+            The circuit diagram for \textit{ShiftRows} is shown in figure \ref{fig:shiftrows}. This circuit takes 128-bit data in, performs shifting and outputs 128-bit data.
 
             The inputted data will first be split into 32-bit words, note that each word corresponds to a column in the \textit{State}. The first row is formed by taking the first byte in each word, and the second byte in each word for the second row and so on for the third and fourth rows. After dividing the input into rows, the shifting operation is done by wiring each row with the corresponding offsets which discussed in section \ref{sec:shift-rows-intro}.
 
