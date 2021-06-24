@@ -13,11 +13,11 @@ module Inv_Second_Row_Mul(data_in, data_out);
         .data_out(gmul_e_Inst0_Out)
     );
     gmul_b gmul_b_Inst0(
-        .data_in(data_in[22:16]),
+        .data_in(data_in[23:16]),
         .data_out(gmul_b_Inst0_Out)
     );
     gmul_d gmul_d_Inst0(
-        .data_in(data_in[31:23]),
+        .data_in(data_in[31:24]),
         .data_out(gmul_d_Inst0_Out)
     );
 

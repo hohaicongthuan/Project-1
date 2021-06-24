@@ -24,10 +24,10 @@ def gmul(a, b):
 
     return int(product)
 
-# num_a = int(input("Enter number a: "))
-# num_b = int(input("Enter number b: "))
+num_a = int(input("Enter number a: "))
+num_b = int(input("Enter number b: "))
 
-# print("Product: ", gmul(num_a, num_b))
+print("Product: ", gmul(num_a, num_b))
 
-for i in range(256):
-    print("i =", i, ">", i, ". 6 =",gmul(i, 6))
+# for i in range(256):
+#     print("i =", i, ">", i, ". 6 =",gmul(i, 6))

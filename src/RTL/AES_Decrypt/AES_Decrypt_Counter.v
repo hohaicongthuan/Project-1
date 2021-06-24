@@ -1,4 +1,4 @@
-module AES_Encrypt_Counter(Clk, Rst, En, data_out);
+module AES_Decrypt_Counter(Clk, Rst, En, data_out);
     input   Clk, Rst, En;
     output  reg [3:0] data_out;
 

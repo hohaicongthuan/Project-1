@@ -1,2 +1,0 @@
-- `AES_Encrypt.v` is the top-level module.
-- `AES_Encrypt_tb.v` is the testbench for `AES_Encryption.v`

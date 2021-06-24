@@ -1,0 +1,66 @@
+module AES_Decrypt(data_in, round_key, round_key_rdy, Clk, Rst, En, data_out, done, round_key_addr);
+    parameter DATA_WIDTH = 128;
+    
+    input   Clk, Rst, En, round_key_rdy;
+    input   [DATA_WIDTH - 1:0] data_in, round_key;
+    output  done;
+    output  [3:0] round_key_addr;
+    output  [DATA_WIDTH - 1:0] data_out;
+
+    wire    Equal0, Less14, GreaterEq15;
+    wire    [DATA_WIDTH - 1:0]  REG_Inst0_out,
+                                InvSubBytes_Inst0_Out,
+                                InvShiftRows_Inst0_Out,
+                                InvMixColumns_Inst0_Out,
+                                MUX_2_1_Inst0_Out, MUX_2_1_Inst1_Out,
+                                AddRoundKey_Inst0_Out, AddRoundKey_Inst1_Out;
+    wire    [3:0]   AES_Decrypt_Counter_Inst0_Out;
+
+    assign  Equal0 = (AES_Decrypt_Counter_Inst0_Out == 0) ? 1'b1 : 1'b0;
+    assign  Less14 = (AES_Decrypt_Counter_Inst0_Out < 14) ? 1'b1 : 1'b0;
+    assign  GreaterEq15 = (AES_Decrypt_Counter_Inst0_Out >= 15) ? 1'b1 : 1'b0;
+    assign  done = GreaterEq15;
+    assign  round_key_addr = 4'd14 - AES_Decrypt_Counter_Inst0_Out;
+
+    AES_Decrypt_Counter AES_Decrypt_Counter_Inst0(
+        .Clk(Clk), .Rst(Rst), .En(round_key_rdy),
+        .data_out(AES_Decrypt_Counter_Inst0_Out)
+    );
+
+    REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst0(
+        .data_out(REG_Inst0_out),
+        .data_in(data_in),
+        .Clk(Clk), .Rst(Rst), .En(En)
+    );
+    REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst1(
+        .data_out(data_out),
+        .data_in(MUX_2_1_Inst0_Out),
+        .Clk(Clk), .Rst(Rst), .En(En & !done)
+    ); // Out REG
+
+    MUX_2_1 #(.DATA_WIDTH(DATA_WIDTH)) MUX_2_1_Inst0(
+        .in_0(MUX_2_1_Inst1_Out), .in_1(AddRoundKey_Inst0_Out), .Sel(Equal0), .data_out(MUX_2_1_Inst0_Out)
+    );
+    MUX_2_1 #(.DATA_WIDTH(DATA_WIDTH)) MUX_2_1_Inst1(
+        .in_0(AddRoundKey_Inst1_Out), .in_1(InvMixColumns_Inst0_Out), .Sel(Less14), .data_out(MUX_2_1_Inst1_Out)
+    );
+
+    AddRoundKey AddRoundKey_Inst0(
+        .data_inA(REG_Inst0_out), .data_inB(round_key), .data_out(AddRoundKey_Inst0_Out)
+    );
+    AddRoundKey AddRoundKey_Inst1(
+        .data_inA(InvSubBytes_Inst0_Out), .data_inB(round_key), .data_out(AddRoundKey_Inst1_Out)
+    );
+
+    InvSubBytes InvSubBytes_Inst0(
+        .data_in(InvShiftRows_Inst0_Out), .data_out(InvSubBytes_Inst0_Out)
+    );
+
+    InvShiftRows InvShiftRows_Inst0(
+        .data_in(data_out), .data_out(InvShiftRows_Inst0_Out)
+    );
+
+    InvMixColumns InvMixColumns_Inst0(
+        .data_in(AddRoundKey_Inst1_Out), .data_out(InvMixColumns_Inst0_Out)
+    );
+endmodule

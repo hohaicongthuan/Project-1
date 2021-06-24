@@ -12,6 +12,7 @@
 \usepackage{graphicx} % This package is used for inserting and manipulating on images
 \usepackage{titlesec} % For section, subsection and subsubsection and so on.
 \usepackage{caption}
+\usepackage{hyphenat} % Use this package for hyphenation
 \newenvironment{Figure}
     {\par\medskip\noindent\minipage{\linewidth}}
     {\endminipage\par\medskip}
@@ -20,28 +21,7 @@
 \setlength\columnsep{20pt} % This is the default columnsep for all pages
 \setcounter{secnumdepth}{4}
 
-\graphicspath{ {../Diagrams/} {../Diagrams/KeyExpansion/} {../Diagrams/MixColumns/} {../Diagrams/ShiftRows/} {../Diagrams/SubBytes/} {../Diagrams/temporary/} }
-
-\hyphenation{
-    trans-form-ation 
-    exponent-ially 
-    crypto-graphic
-    crypto-graphy 
-    sub-titu-tion 
-    ta-ble 
-    rou-tine 
-    rectang-ular 
-    expan-sion 
-    secur-ity 
-    encryp-tion 
-    decryp-tion 
-    specifi-cation 
-    inter-mediate 
-    multi-pli-cation 
-    poly-nomials 
-    compris-ing 
-    stand-ard
-}
+\graphicspath{ {../Diagrams/} {../Diagrams/KeyExpansion/} {../Diagrams/MixColumns/} {../Diagrams/ShiftRows/} {../Diagrams/SubBytes/} {../Diagrams/temporary/} {../Diagrams/InvMixColumns/} {../Diagrams/InvShiftRows/} {../Diagrams/InvSubBytes/}}
 
 % Document begins here
 \begin{document}
@@ -262,6 +242,7 @@
             \end{equation}
 
             \subsubsection{Inverse Mix Columns}
+	\label{sec:invmixcolumns}
 
             \textit{Inverse Mix Columns} denoted as \textit{InvMixColumns} is the inverse of \textit{MixColumns} transformation. Each column from the \textit{State} is multiplied with the inverse matrix of the matrix (\ref{equ:mixcolumns-matrix}), which is shown in (\ref{equ:inv-mixcolumns-matrix}), using the multiplication in \textit{$GF(2^{8})$}. Note that all numbers in the matrix are written in hexadecimal.
 
@@ -379,7 +360,15 @@
 
             In figure \ref{fig:mixcolumns} is the circuit design for \textit{MixColumns} transformation. The 128-bit data input fed into the circuit is divided into four words. Each word is fed into \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks, which is basically multiplying that word using the multiplication in \textit{GF($2^{8}$)} with first, second, third, and fourth rows of the matrix (\ref{equ:mixcolumns-matrix}) from section \ref{sec:mixcolumns}. Each of the four blocks will output a new byte after the multiplication. Four bytes will be combined into a word. And the 128-bit output is formed by combining four words.
 
-            The implementation of the \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks is shown in figure \ref{fig:first-row-mul}, \ref{fig:second-row-mul}, \ref{fig:third-row-mul}, and \ref{fig:fourth-row-mul}, respectively. Note that all the addition operations (the plus symbol) in these circuits are all \textit{XOR} operations.
+	\noindent
+            \begin{figure*}[t]
+                \centering
+                \includegraphics[width=\linewidth]{AES_decrypt.png}
+                \captionof{figure}{Diagram of AES Decryption Circuit.}
+                \label{fig:AES_decrypt}
+            \end{figure*}
+
+            The design of \textit{First\_Row\_Mul}, \textit{Second\_Row\_Mul}, \textit{Third\_Row\_Mul}, and \textit{Fourth\_Row\_Mul} blocks is shown in figure \ref{fig:first-row-mul}, \ref{fig:second-row-mul}, \ref{fig:third-row-mul}, and \ref{fig:fourth-row-mul}, respectively. Note that all the addition operations (the plus symbol) in these circuits are all \textit{XOR} operations.
 
             \noindent
             \begin{Figure}
@@ -425,17 +414,168 @@
 
             \subsection{AES-256 Decryption}
 
+	
+
             \subsubsection{Inverse Byte Substitution}
         
-            Text here.
+	Both circuit design for \textit{InvSubBytes} and \textit{SubBytes} are similar. The only difference is \textit{InvSBox} is used instead of \textit{SBox} in \textit{InvSubBytes} transformation. Note that both \textit{SBox} and \textit{InvSBox} are implemented as LUTs.
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvSubBytes.png}
+                \captionof{figure}{InvSubBytes circuit diagram.}
+                \label{fig:invsubbytes}
+            \end{Figure}
 
             \subsubsection{Inverse Shift Rows}
 
-            Text here.
+             The circuit design for \textit{InvShiftRows} transformation is similar to the design of \textit{ShiftRows} transformation shown in figure \ref{fig:shiftrows}. However, the wiring is different in the second row and the fourth row. Details can be seen in figure \ref{fig:invshiftrows}.
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvShiftRows.png}
+                \captionof{figure}{InvShiftRows circuit diagram.}
+                \label{fig:invshiftrows}
+            \end{Figure}
 
             \subsubsection{Inverse Mix Columns}
 
-            Text here.
+            The circuit diagram for \textit{InvMixColumns} transformation, which is shown in figure \ref{fig:invmixcolumns}, is a bit more sophisticated than the one for \textit{MixColumns} transformation, yet the top-level designs are still identical.
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-top.png}
+                \captionof{figure}{InvMixColumns circuit diagram.}
+                \label{fig:invmixcolumns}
+            \end{Figure}
+
+	\textit{Inv\_First\_Row\_Mul}, \textit{Inv\_Second\_Row\_Mul}, \textit{Inv\_Third\_Row\_Mul}, and \textit{Inv\_Fourth\_Row\_Mul} multiply a column (or a word) from the \textit{State} with the first, second, third, and fourth row of the matrix (\ref{equ:inv-mixcolumns-matrix}) mentioned in section \ref{sec:invmixcolumns}, respectively, using multiplication operation in \textit{GF($2^{8}$)}. The circuit diagrams of those blocks can be seen in figure \ref{fig:invfirstrowmul}, \ref{fig:invsecondrowmul}, \ref{fig:invthirdrowmul}, \ref{fig:invfourthrowmul}, respectively.
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-Inv_First_Row_Mul.png}
+                \captionof{figure}{Inv\_First\_Row\_Mul circuit diagram.}
+                \label{fig:invfirstrowmul}
+            \end{Figure}
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-Inv_Second_Row_Mul.png}
+                \captionof{figure}{Inv\_Second\_Row\_Mul circuit diagram.}
+                \label{fig:invsecondrowmul}
+            \end{Figure}
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-Inv_Third_Row_Mul.png}
+                \captionof{figure}{Inv\_Third\_Row\_Mul circuit diagram.}
+                \label{fig:invthirdrowmul}
+            \end{Figure}
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-Inv_Fourth_Row_Mul.png}
+                \captionof{figure}{Inv\_Fourth\_Row\_Mul circuit diagram.}
+                \label{fig:invfourthrowmul}
+            \end{Figure}
+
+	\textit{gmul\_9}, \textit{gmul\_e}, \textit{gmul\_b}, and \textit{gmul\_d} multiply an input number with 9, e, b, and d, respectively, using multiplication in \textit{GF($2^{8}$)}. Note that all numbers in this section are in hexadecimal. Multiplying a number $x$ with the number 9 in \textit{GF($2^{8}$)} can be broken down as 
+
+\begin{equation}
+\begin{aligned}
+	x \bullet 9 &= \left(x \bullet 8\right) \oplus x \\
+	&= \left(x \bullet 4 \bullet 2\right) \oplus x \\
+	&= \left(x \bullet 2 \bullet 2 \bullet 2\right) \oplus x
+\end{aligned}
+\end{equation}
+
+	Since we have created the multiplier by 2 in \textit{GF($2^{8}$)}, denoted as \textit{gmul\_2} and shown in figure \ref{fig:gmul-2}, so we can use that to create smaller components that make up the \textit{gmul\_9} as shown in figure \ref{fig:gmul-4}, \ref{fig:gmul-8}, and \ref{fig:gmul-9}.
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-gmul_4.png}
+                \captionof{figure}{gmul\_4 circuit diagram.}
+                \label{fig:gmul-4}
+            \end{Figure}
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-gmul_8.png}
+                \captionof{figure}{gmul\_8 circuit diagram.}
+                \label{fig:gmul-8}
+            \end{Figure}
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-gmul_9.png}
+                \captionof{figure}{gmul\_9 circuit diagram.}
+                \label{fig:gmul-9}
+            \end{Figure}
+
+	Similarly, multiplying a number $x$ with the number b can be broken down as
+
+\begin{equation}
+\begin{aligned}
+	x \bullet b & = (x \bullet 9) \oplus (x \bullet 2) \\
+	& = (x \bullet 8) \oplus x \oplus (x \bullet 2)
+\end{aligned}
+\end{equation}
+
+	Therefore, we can use the previously made \textit{gmul\_9} to make \textit{gmul\_b}.
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-gmul_b.png}
+                \captionof{figure}{gmul\_b circuit diagram.}
+                \label{fig:gmul-b}
+            \end{Figure}
+
+	Equivalently, multiplying by d and e can be rewritten as in (\ref{equ:gmul-d}) and (\ref{equ:gmul-e}), in the order mentioned.
+
+\begin{equation}
+\label{equ:gmul-d}
+\begin{aligned}
+	x \bullet d & = (x \bullet 9) \oplus (x \bullet 4)
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\label{equ:gmul-e}
+\begin{aligned}
+	x \bullet e & = (x \bullet 8) \oplus (x \bullet 4) \oplus (x \bullet 2)
+\end{aligned}
+\end{equation}
+
+	As a result, we can totally use previously made circuits to make \textit{gmul\_d} and \textit{gmul\_e}.
+
+	Note that all the plus signs in all the diagrams in this section represent the \textit{XOR} operation.
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-gmul_d.png}
+                \captionof{figure}{gmul\_d circuit diagram.}
+                \label{fig:gmul-d}
+            \end{Figure}
+
+	\noindent
+            \begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{InvMixColumns-gmul_e.png}
+                \captionof{figure}{gmul\_e circuit diagram.}
+                \label{fig:gmul-e}
+            \end{Figure}
 
             \subsection{Add Round Keys}
 
@@ -445,7 +585,7 @@
 
         \subsection{Key Expansion}
 
-        Figure \ref{fig:keyexpansion-sim} shows simulation waveform result using \textit{ModelSim}. As can be seen in the figure, after 61 clock cycles since the last \textit{reset} signal, the textit{ready} signal is set indicating round keys have been generated. Therefore, they can be retrieved correctly, which is the part circled in the figure.
+        Figure \ref{fig:keyexpansion-sim} shows simulation waveform result using \textit{ModelSim}. As can be seen in the figure, after 61 clock cycles since the last \textit{reset} signal, the \textit{ready} signal is set indicating round keys have been generated. Therefore, they can be retrieved correctly, which is the part circled in the figure.
 
             \begin{Figure}
                 \centering
@@ -456,11 +596,24 @@
 
         The circuit is tested with different keys from the example section in \cite{AES} and the web-based tool \textit{https://www.cryptool.org/en/cto/aes-step-by-step}. The results produced by the circuit are the same with the expected results in each test case.
 
-        \subsection{AES-256 Encryption}
+	The design is synthesised and compiled on Quartus II 64-Bit for Cyclone III EP3C40F780C6 device. The result is shown in table \ref{tab:keyexpansion}.
 
-        Text here.
+	\noindent
+	\begin{center}
+		\captionof{table}{Synthesis \& Compilation Result.}
+		\label{tab:keyexpansion}
+                    \begin{tabular}{| m{5.5cm} | m{3cm} |}
+		\hline   
+		\textbf{Total logic elements} & 4 942/39 600 (12\%)\\
+                        \hline
+                        \textbf{Total combinational functions} & 4 684/39 600 (12\%)\\
+                        \hline
+                        \textbf{Dedicated logic registers} & 2 310/39 600 (6\%)\\
+                        \hline
+                    \end{tabular}
+	\end{center}
 
-        \subsection{AES-256 Decryption}
+        \subsection{AES-256 Encryption \& Decryption}
 
         Text here.
 

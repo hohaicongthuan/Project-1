@@ -13,11 +13,11 @@ module Inv_Fourth_Row_Mul(data_in, data_out);
         .data_out(gmul_d_Inst0_Out)
     );
     gmul_9 gmul_9_Inst0(
-        .data_in(data_in[22:16]),
+        .data_in(data_in[23:16]),
         .data_out(gmul_9_Inst0_Out)
     );
     gmul_e gmul_e_Inst0(
-        .data_in(data_in[31:23]),
+        .data_in(data_in[31:24]),
         .data_out(gmul_e_Inst0_Out)
     );
 
