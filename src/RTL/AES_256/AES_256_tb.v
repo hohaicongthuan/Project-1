@@ -7,7 +7,7 @@ module AES_256_tb();
 
     reg [127:0] data_in;
     reg [255:0] cipher_key;
-    reg Clk, Rst, En;
+    reg Clk, Rst, En, encryp_decrypt;
     wire [127:0] data_out;
     wire done;
 
@@ -20,6 +20,7 @@ module AES_256_tb();
         // infile  = $fopen("data.in", "r");
         // outfile = $fopen("data.out", "w");
         // $fscanf(infile, "%h\n", data_in);
+        encryp_decrypt = 1'b1;
         Rst = 1'b0;
         En = 1'b0;
         #waittime;
@@ -29,12 +30,25 @@ module AES_256_tb();
         En = 1'b1;
 
         while (!done) #waittime;
+        #waittime; #waittime; #waittime;
+
+        encryp_decrypt = 1'b0;
+        Rst = 1'b0;
+        En = 1'b0;
         #waittime;
+        Rst = 1'b1;
+        data_in = 128'hf881b13d7e5a4b063ca0d2b5bdd1eef3;
+        En = 1'b1;
+
+        while (!done) #waittime;
+        #waittime; #waittime; #waittime;
+
         $finish;
     end
 
     AES_256 DUT_Inst0(
         .cipher_key(cipher_key),
+        .encryp_decrypt(encryp_decrypt),
         .data_in(data_in),
         .data_out(data_out),
         .Clk(Clk), .Rst(Rst), .En(En), .done(done)

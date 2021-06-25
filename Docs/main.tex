@@ -43,9 +43,9 @@
         %%%%%%%%%%%%
         % ABSTRACT %
         %%%%%%%%%%%%
-        \textbf{\textit{Abstract\textemdash}In the modern days, the amount of data grow exponentially, including classified and sensitive data that need to be kept secured. For this reason, many cryptographic techniques have been invented for the purpose. AES is one of them. It provides fast and secure data encryption which are the reasons this algorithm is chosen for this project.}
+        \textbf{\textit{Abstract\textemdash}In modern days, the amount of data grow exponentially, including classified and sensitive data that need to be kept secured. For this reason, many cryptographic techniques have been invented for this purpose. AES is one of them. It provides fast and secure data encryption which are the reasons this algorithm is chosen for this project.}
 
-        \textbf{The goal of this project is to implement a fully functional AES encryption and decryption system using 256-bit key on FPGA.}
+        \textbf{The goal of this project is to implement a fully functional AES encryption and decryption system using 256-bit keys on FPGA.}
         
         \bigskip
 
@@ -55,23 +55,24 @@
         % CONTENT %
         %%%%%%%%%%%
         \section{INTRODUCTION}
-            \textit{The Advanced Encryption Standard (AES)}, also known as \textit{Rijndael} is a specification for encrypting electronic data first introduced by the \textit{U.S. National Institute of Standards and Technology (NIST)} in 2001. It provides a fast and secure way to encrypt data and uses symmetric keys encryption which means both the encryption and decryption processes using the same key. The key length for AES could be 128, 192 and 256 bits. This paper concentrates on AES using 256-bit key which will be refered to as AES-256 for the rest of this paper.
+            \textit{The Advanced Encryption Standard (AES)}, also known as \textit{Rijndael} is a specification for encrypting electronic data first introduced by the \textit{U.S. National Institute of Standards and Technology (NIST)} in 2001. It provides a fast and secure way to encrypt data and uses symmetric keys encryption which means both the encryption and decryption processes using the same key. The key length for AES could be 128, 192 and 256 bits. This paper concentrates on AES using 256-bit keys which will be referred to as AES-256 for the rest of this paper.
             
             \subsection{Concepts used in AES-256}
                 % \begingroup
                     % \setlength{\tabcolsep}{10pt} % Default value: 6pt
                     % \renewcommand{\arraystretch}{1.5} % Default value: 1
                     \noindent
-                    \begin{tabular}{m{2cm} m{5cm}}
-                        \textbf{\textit{Key expansion}} & Routine used to generate a series of Round Keys from the Cipher Key.\\
+			\begin{center}
+                    \begin{tabular}{m{2cm} m{5.5cm}}
+                        \textbf{\textit{Key expansion}} & Routine used to generate a set of Round Keys from the Cipher Key.\\
                         \hline
-                        \textbf{\textit{State}} & Intermediate Cipher result that can be pictured as a rectangular array
-                        of bytes, having four rows and \textbf{\textit{Nb}} columns.\\
+                        \textbf{\textit{State}} & Intermediate Cipher result that can be pictured as a rectangular array of bytes, having four rows and \textbf{\textit{Nb}} columns.\\
                         \hline
-                        \textbf{\textit{S-box}} & Non-linear substitution table used in several byte substitution transformation and in the Key Expansion routine to perform a one-for-one substitution of a byte value.\\
+                        \textbf{\textit{S-box}} & Substitution table used in byte substitution transformation and in the Key Expansion routine to perform a one-for-one replacement of a byte value.\\
                         \hline
                         \textbf{\textit{Word}} & A group of 32 bits that is treated either as a single entity or as an array of 4 bytes.\\
                     \end{tabular}
+			\end{center}
                 % \endgroup
             
             \subsection{Abbreviations and Symbols used in AES-256}
@@ -79,7 +80,8 @@
                     \setlength{\tabcolsep}{5pt} % Default value: 6pt
                     \renewcommand{\arraystretch}{1.5} % Default value: 1
                     \noindent
-                        \begin{tabular}{m{1cm} m{6.5cm}}
+                        \begin{center}
+				\begin{tabular}{m{1cm} m{7cm}}
                             \textbf{\textit{Nb}} & Number of columns (32-bit words) comprising the State. For this
                             standard, \textbf{\textit{Nb}} = 4.\\
                             \hline
@@ -96,6 +98,7 @@
                             \hline
                             $\bullet$ & Finite field multiplication\\
                         \end{tabular}
+				\end{center}
                 % \endgroup
 
         \section{AES-256}
@@ -135,7 +138,7 @@
 
                 $w[i]$ will then be \textbf{\textit{XOR}}-ed with $w[i-Nk]$ and the result is assigned back to itself. $i$ is incremented by 1.
 
-                After finishing the algorithm, a set of $Nb(Nr+1)$ words is generated. Round Keys are created by grouping four words each sequentially. At this point, we have one round key for the initial round and 14 round keys for 14 rounds during the encryption or decryption processes, with the total of 15 round keys.
+                After finishing the algorithm, a set of $Nb(Nr+1)$ words is generated. Round Keys are created by grouping four words each sequentially. At this point, we have one round key for the initial round and 14 round keys for 14 rounds during the encryption or decryption processes, with a total of 15 round keys.
 
             \subsection{AES-256 Encryption}
 
@@ -153,7 +156,7 @@
                 \label{fig:SBox}
             \end{Figure}
 
-            The higher 4 bits determine the coordinate of the row and lower 4 bits determine the coordinate of the column. For example, the byte \textbf{5A}, we have $x=5$ \& $y=A$, these values point to the new value in the table, which is \textbf{BE}. So \textbf{5A} will be substituted by \textbf{BE}.
+            The higher 4 bits determine the coordinate of the row and the lower 4 bits determine the coordinate of the column. For example, the byte \textbf{5A}, we have $x=5$ \& $y=A$, these values point to the new value in the table, which is \textbf{BE}. So \textbf{5A} will be substituted by \textbf{BE}.
 
             \subsubsection{Shift Rows}
             \label{sec:shift-rows-intro}
@@ -258,11 +261,11 @@
 
             \subsection{Add Round Keys}
 
-            Round keys generated from \textit{Key Expansion} rountine will be used in this transformation. It takes two 128-bit input data and output 128-bit data. Round keys are added to the \textit{State} by bitwise \textit{XOR} operations with the corresponding bytes. 
+            Round keys generated from \textit{Key Expansion} routine will be used in this transformation. It takes two 128-bit input data and output 128-bit data. Round keys are added to the \textit{State} by bitwise \textit{XOR} operations with the corresponding bytes. 
 
         \section{IMPLEMENTATION}
 
-	The top-level design for AES-256, including encryption and decryption, is shown in figure \ref{fig:aes-256-top-level-design}. The implementation of smaller modules are discussed in the following sub-sections.
+	The top-level design for AES-256, including encryption and decryption, is shown in figure \ref{fig:aes-256-top-level-design}. The implementation of smaller modules is discussed in the following sub-sections.
 
           \subsection{Key Expansion}
 
@@ -274,13 +277,13 @@
                 \label{fig:KeyExpansion}
             \end{figure*}
 
-            The design of the Key Expansion routine is shown in figure \ref{fig:KeyExpansion}. As in the design, the total of 15 round keys, including round key for the initial round, will be created firstbefore they could involve in the \textbf{\textit{Add Round Key}} function in the encryption and decryption process.
+            The design of the Key Expansion routine is shown in figure \ref{fig:KeyExpansion}. As in the design, the total of 15 round keys, including the round key for the initial round, will be created first before they could involve in the \textbf{\textit{Add Round Key}} function in the encryption and decryption process.
             
-            This circuit will generate words that make up the Round Key one-by-one and store them in the \textit{Register File}. The \textit{Register File} has the total amount of 64 registers but only 60 of them are used because we only need to generate 60 words. The module \textit{Rcon} and \textit{SubWord} are implemented in the form of look-up tables (LUTs).
+            This circuit will generate words that make up the Round Key one-by-one and store them in the \textit{Register File}. The \textit{Register File} has a total amount of 64 registers but only 60 of them are used because we only need to generate 60 words. The module \textit{Rcon} and \textit{SubWord} are implemented in the form of look-up tables (LUTs).
 
             In order for the circuit to work, the \textit{reset} signal must be pulled low (the \textit{reset} signal is active low) and then the \textit{enable} signal is pulled high. The cipher key can be passed through \textit{Input Data}. After reset, the counter's value will be set to zero and increased by 1 after each clock cycle. In the meantime, the inputted cipher key will be broken up into words, which are 32 bits each, and stored in eight registers from $w_{0}$ to $w_{7}$.
             
-            In the next eight clock cycles each of the word will be saved into the \textit{Register File} sequentially from the address 1 to 8. After that, to generate the $i^{th}$ word, $(i-1)^{th}$ and $(i-Nk)^{th}$ words are required, which can be accessed through Register File's Out\_A \& Out\_B ports respectively, with the addresses are selected by $i-1$ \& $i-8$ blocks in the circuit.
+            In the next eight clock cycles, each of the words will be saved into the \textit{Register File} sequentially from the address 1 to 8. After that, to generate the $i^{th}$ word, $(i-1)^{th}$ and $(i-Nk)^{th}$ words are required, which can be accessed through Register File's Out\_A \& Out\_B ports respectively, with the addresses are selected by $i-1$ \& $i-8$ blocks in the circuit.
 
             Depend on which word is generating, \textit{RotWord}, \textit{SubWord} can all be performed or just \textit{SubWord} is performed or neither of those. This is controlled by signals from \textit{mod 9 = 4} \& \textit{mod 9 = 0} blocks. Basically, the \textit{mod 9 = 4} block checks if a input number dividing by 9 has 4 as the remainder. If it is, the output will be pulled high and pulled low if it is not. Same thing with the \textit{mod 9 = 0} block but with 0 as the remainder. The design of \textit{mod 9 = 0} \& \textit{mod 9 = 4} are shown in figure \ref{fig:mod9eq0} and figure \ref{fig:mod9eq4}, respectively.
             
@@ -300,7 +303,7 @@
                 \label{fig:mod9eq4}
             \end{Figure}
 
-            All the words will have been generated after sixty-one clock cycles. The counter will shut itself and the \textit{ready} signal is set indicating all round keys have been generated. After done generating and the \textit{ready} signal is set, round keys can be accessed by inputting the appropriate address through \textit{Key Address} input, which have the value range from 0 to 14.
+            All the words will have been generated after sixty-one clock cycles. The counter will shut itself and the \textit{ready} signal is set indicating all round keys have been generated. After done generating and the \textit{ready} signal is set, round keys can be accessed by inputting the appropriate address through \textit{Key Address} input, which has a value range from 0 to 14.
             
             \subsection{AES-256 Encryption}
 
@@ -312,9 +315,9 @@
                 \label{fig:AES_encrypt}
             \end{figure*}
 
-	Figure \ref{fig:AES_encrypt} shows the design of AES Encryption circuit. This circuit takes 128-bit data in and a set of round keys to perform AES encrytion on the inputted data.
+	Figure \ref{fig:AES_encrypt} shows the design of AES Encryption circuit. This circuit takes 128-bit data in and a set of round keys to perform AES encryption on the inputted data.
 
-	A reset signal must be inputted in order for the circuit to work properly. A counter will keep track of which round and round key the encryption process is currently at. In the first clock cycle, inputted data will be stored in a register and added with the first round key and saved in another register that acts as the \textit{State}, completing the initial round. In the next thirteen clock cycles, the circuit performs thirteen rounds comprising \textit{SubBytes}, \textit{ShiftRows}, \textit{MixColumns}, and \textit{AddRoundKey} transformations in each round on the \textit{State}. In the last round, the \textit{MixColumns} transformation is optted out. The encryption process will be completed after fifteen clock cycles and the \textit{done} signal will be pulled high.
+	A reset signal must be inputted in order for the circuit to work properly. A counter will keep track of which round and round key the encryption process is currently at. In the first clock cycle, inputted data will be stored in a register and added with the first round key and saved in another register that acts as the \textit{State}, completing the initial round. In the next thirteen clock cycles, the circuit performs thirteen rounds comprising \textit{SubBytes}, \textit{ShiftRows}, \textit{MixColumns}, and \textit{AddRoundKey} transformations in each round on the \textit{State}. In the last round, the \textit{MixColumns} transformation is opted out. The encryption process will be completed after fifteen clock cycles and the \textit{done} signal will be pulled high.
 	
 	Details on smaller circuits in this AES Encryption circuit like \textit{SubBytes}, \textit{ShiftRows}, \textit{MixColumns}, etc. are represented in the following sub-sections.
 
@@ -330,7 +333,7 @@
 
             The design for \textit{SubBytes} block is shown in figure \ref{fig:subbytes}. The \textit{SBox} used in this circuit is implemented as LUT and is the same as \textit{SBox} from figure \ref{fig:SBox} and \textit{SubWord} in \textit{Key Expansion} routine.
 
-            This ciruit takes 128-bit data and splits into words and then into individual bytes. Each byte will be fed into \textit{SBox} and the corresponding byte will be outputted. The outputted bytes will then be combined into words and eventually into 128-bit output data.
+            This circuit takes 128-bit data and splits it into words and then into individual bytes. Each byte will be fed into \textit{SBox} and the corresponding byte will be outputted. The outputted bytes will then be combined into words and eventually into 128-bit output data.
 
             \subsubsection{Shift Rows}
 
@@ -594,13 +597,13 @@
                 \label{fig:keyexpansion-sim}
             \end{Figure}
 
-        The circuit is tested with different keys from the example section in \cite{AES} and the web-based tool \textit{https://www.cryptool.org/en/cto/aes-step-by-step}. The results produced by the circuit are the same with the expected results in each test case.
+        The circuit is tested with different keys from the example section in \cite{AES} and the web-based tool \textit{https://www.cryptool.org/en/cto/aes-step-by-step}. The results produced by the circuit are the same as the expected results in each test case.
 
 	The design is synthesised and compiled on Quartus II 64-Bit for Cyclone III EP3C40F780C6 device. The result is shown in table \ref{tab:keyexpansion}.
 
 	\noindent
 	\begin{center}
-		\captionof{table}{Synthesis \& Compilation Result.}
+		\captionof{table}{Synthesis \& Compilation results for Key Expansion.}
 		\label{tab:keyexpansion}
                     \begin{tabular}{| m{5.5cm} | m{3cm} |}
 		\hline   
@@ -613,13 +616,48 @@
                     \end{tabular}
 	\end{center}
 
-        \subsection{AES-256 Encryption \& Decryption}
+        \subsection{AES-256}
 
-        Text here.
+	Both encryption and decryption units have been tested and run simulation on \textit{ModelSim}. The results waveform are shown in figure \ref{fig:aes-256-en-sim} for encryption and figure \ref{fig:aes-256-de-sim} for decryption.
+
+	\begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{aes-256-encryption-waveform-edited.png}
+                \captionof{figure}{AES-256 encryption simulation result in \textit{ModelSim}.}
+                \label{fig:aes-256-en-sim}
+            \end{Figure}
+
+	\begin{Figure}
+                \centering
+                \includegraphics[width=\linewidth]{aes-256-decryption-waveform-edited.png}
+                \captionof{figure}{AES-256 decryption simulation result in \textit{ModelSim}.}
+                \label{fig:aes-256-de-sim}
+            \end{Figure}
+
+	As can be seen in the two figures above, the done signal (the last line in both figures) is set when the circuit has done the encryption/decryption process indicating the current result is the final result. There are a couple of clock cycles needed for \textit{Key Expansion} routine to generate round keys before the encryption/decryption process can actually start. That is the reason why it takes a fair amount of clock cycles to spit out the final output in the two figures.
+
+	The design is synthesised and compiled on Quartus II 64-Bit for Cyclone III EP3C40F780C6 device. The result is shown in table \ref{tab:aes-256}.
+
+        \noindent
+	\begin{center}
+		\captionof{table}{Synthesis \& Compilation results for AES-256.}
+		\label{tab:aes-256}
+                    \begin{tabular}{| m{5.5cm} | m{3cm} |}
+		\hline   
+		\textbf{Total logic elements} & 13 776/39 600 (35\%)\\
+                        \hline
+                        \textbf{Total combinational functions} & 12 687/39 600 (32\%)\\
+                        \hline
+                        \textbf{Dedicated logic registers} & 2 698/39 600 (7\%)\\
+                        \hline
+                    \end{tabular}
+	\end{center}
 
         \section{CONCLUSION}
 
-        (N/A)
+        This paper has represented the design of AES-256 that can do basic functionalities like encryption and decryption. Nevertheless, this design has not been well-optimised and thus manifested some limitations as well as other things that could be improved in future research.
+
+	The goal of this project is to make a fully functional AES-256 encryption and decryption system on FPGA. For this reason, optimising for speed and resources have not yet been taken into consideration, so the performance might be poor. Another downside of this design that it has to be reset for each time it performs encryption or decryption which leads to the re-calculation of round keys, even when the same cipher key is used for encryption and decryption, and thus wasting time as well as slowing the encryption/decryption speed down.
 
         %%%%%%%%%%%%%%%%%%%%%%%%%%
         % REFERENCE SECTION HERE %
