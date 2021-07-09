@@ -7,3 +7,9 @@ Scripts/AES-256_env
 **/*.toc
 **/*.gz
 **/*.bak
+src/scripts/utils/TestCase_Cipher_Key.txt
+*.expected
+src/scripts/utils/TestCase_Ciphertext.txt
+src/scripts/utils/TestCase_Plaintext.txt
+src/scripts/utils/decrypt_data.out
+src/scripts/utils/encrypt_data.out
