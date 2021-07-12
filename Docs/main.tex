@@ -55,7 +55,7 @@
         % CONTENT %
         %%%%%%%%%%%
         \section{INTRODUCTION}
-            \textit{The Advanced Encryption Standard (AES)}, also known as \textit{Rijndael} is a specification for encrypting electronic data first introduced by the \textit{U.S. National Institute of Standards and Technology (NIST)} in 2001. It provides a fast and secure way to encrypt data and uses symmetric keys encryption which means both the encryption and decryption processes using the same key. The key length for AES could be 128, 192 and 256 bits. This paper concentrates on AES using 256-bit keys which will be referred to as AES-256 for the rest of this paper.
+            \textit{The Advanced Encryption Standard (AES)}, also known as \textit{Rijndael} is a specification for encrypting electronic data first introduced by the \textit{U.S. National Institute of Standards and Technology (NIST)} in 2001 \cite{AES}. It provides a fast and secure way to encrypt data and uses symmetric keys encryption which means both the encryption and decryption processes using the same key. The key length for AES could be 128, 192 and 256 bits. This paper concentrates on AES using 256-bit keys which will be referred to as AES-256 for the rest of this paper.
             
             \subsection{Concepts used in AES-256}
                 % \begingroup
@@ -138,7 +138,7 @@
 
                 $w[i]$ will then be \textbf{\textit{XOR}}-ed with $w[i-Nk]$ and the result is assigned back to itself. $i$ is incremented by 1.
 
-                After finishing the algorithm, a set of $Nb(Nr+1)$ words is generated. Round Keys are created by grouping four words each sequentially. At this point, we have one round key for the initial round and 14 round keys for 14 rounds during the encryption or decryption processes, with a total of 15 round keys.
+                After finishing the algorithm, a set of $Nb(Nr+1)$ words is generated. Round Keys are created by grouping four words each sequentially. At this point, we have one round key for the initial round and 14 round keys for 14 rounds during the encryption or decryption processes, with a total of 15 round keys. Details about the algorithm as well as pseudo-code for it can be found at \cite{AES} and \cite{sam-key-expansion}.
 
             \subsection{AES-256 Encryption}
 
@@ -156,7 +156,7 @@
                 \label{fig:SBox}
             \end{Figure}
 
-            The higher 4 bits determine the coordinate of the row and the lower 4 bits determine the coordinate of the column. For example, the byte \textbf{5A}, we have $x=5$ \& $y=A$, these values point to the new value in the table, which is \textbf{BE}. So \textbf{5A} will be substituted by \textbf{BE}.
+            The higher 4 bits determine the coordinate of the row and the lower 4 bits determine the coordinate of the column. For example, the byte \textbf{5A}, we have $x=5$ \& $y=A$, these values point to the new value in the table, which is \textbf{BE}. So \textbf{5A} will be substituted by \textbf{BE}. Details about transformations to create S-Box can be found at \cite{AES} and \cite{sam-s-box}.
 
             \subsubsection{Shift Rows}
             \label{sec:shift-rows-intro}
@@ -205,7 +205,7 @@
             \label{equ:mixcolumns-matrix}
         \end{equation}
 
-        The multiplication operation performed in this \textit{MixColumns} transformation is not ordinary integer multiplication but multiplication in \textit{GF($2^{8}$)}, which can be performed at byte level as left shift operation followed by the conditional \textit{XOR} operation with the number \textbf{1B} in hexadecimal.
+        The multiplication operation performed in this \textit{MixColumns} transformation is not ordinary integer multiplication but multiplication in \textit{GF($2^{8}$)}, which can be performed at byte level as left shift operation followed by the conditional \textit{XOR} operation with the number \textbf{1B} in hexadecimal. More examples and in-depth explanation about this transformation can be found at \cite{AES}, \cite{sam-mix-columns}, and \cite{understand_mixcol}.
 
             \subsection{AES-256 Decryption}
 
@@ -601,7 +601,7 @@
                 \label{fig:keyexpansion-sim}
             \end{Figure}
 
-        The circuit is tested with different keys from the example section in \cite{AES} and the web-based tool \textit{https://www.cryptool.org/en/cto/aes-step-by-step}. The results produced by the circuit are the same as the expected results in each test case.
+        The circuit is tested with different keys from the example section in \cite{AES} and the web-based tool \textit{AES Step-by-Step} \cite{aes-step-by-step}. The results produced by the circuit are the same as the expected results in each test case.
 
 	The design is synthesised and compiled on Quartus II 64-Bit for Cyclone III EP3C40F780C6 device. The result is shown in table \ref{tab:keyexpansion}.
 
@@ -640,7 +640,7 @@
                 \label{fig:aes-256-de-sim}
             \end{Figure}
 
-	As can be seen in the two figures above, the done signal (the last line in both figures) is set when the circuit has done the encryption/decryption process indicating the current result is the final result. There are a couple of clock cycles needed for \textit{Key Expansion} routine to generate round keys before the encryption/decryption process can actually start. That is the reason why it takes a fair amount of clock cycles to spit out the final output in the two figures.
+	As can be seen in the two figures above, the done signal (the last line in both figures) is set when the circuit has done the encryption/decryption process indicating the current result is the final result. There are a couple of clock cycles needed for \textit{Key Expansion} routine to generate round keys before the encryption/decryption process can actually start. That is the reason why it takes a fair amount of clock cycles to spit out the final output in the two figures. It needs a total of 76 clock cycles for the circuit to yield the final result, 61 clock cycles of which are for the \textit{Key Expansion} unit to generate round keys and the other 15 clock cycles are for the encryption/decryption process.
 
 	The design is synthesised and compiled on Quartus II 64-Bit for Cyclone III EP3C40F780C6 device. The result is shown in table \ref{tab:aes-256}.
 
@@ -657,6 +657,27 @@
                         \textbf{Dedicated logic registers} & 2 698/39 600 (7\%)\\
                         \hline
 				\textbf{Fmax} & 24.59 MHz\\
+				\hline
+                    \end{tabular}
+	\end{center}
+
+	The timing analysis results can be seen in table \ref{tab:timing-results}.
+
+	\noindent
+	\begin{center}
+		\captionof{table}{Timing Analysis results for AES-256.}
+		\label{tab:timing-results}
+                    \begin{tabular}{| m{4cm} | m{2cm} | m{2cm} |}
+		\hline   
+		 & \textbf{Fmax} & 24.59 MHz \\
+		 \textbf{Slow 1200mV 85C Model}& \textbf{Setup Slack} & 4.670 \\
+									    & \textbf{Hold Slack} & 0.355 \\
+									    & \textbf{Data-rate} & 41.41 Mb/s \\
+                        \hline
+		 & \textbf{Fmax} & 27.23 MHz \\
+		 \textbf{Slow 1200mV 85C Model}& \textbf{Setup Slack} & 6.635 \\
+									    & \textbf{Hold Slack} & 0.309 \\
+									    & \textbf{Data-rate} & 45.86 Mb/s \\
 				\hline
                     \end{tabular}
 	\end{center}
@@ -684,10 +705,6 @@
             Sam Trenholme.
             \textit{Rijndael's mix column stage.\\https://samiam.org/mix-column.html}.
 
-            \bibitem{sam-galois-field}
-            Sam Trenholme.
-            \textit{AES' Galois field.\\https://samiam.org/galois.html}.
-
             \bibitem{sam-s-box}
             Sam Trenholme.
             \textit{Rijndael's S-Box.\\https://samiam.org/s-box.html}.
@@ -695,6 +712,10 @@
             \bibitem{understand_mixcol}
             Kit Choy Xintong.
             \textit{Understanding AES Mix-Columns Transformation Calculation}.
+
+		\bibitem{aes-step-by-step}
+            AES Step-by-Step.
+            \textit{https://www.cryptool.org/en/cto/aes-step-by-step}.
         \end{thebibliography}
 
     \end{multicols}
